@@ -1,0 +1,279 @@
+{
+  "node1": {
+    "title": "Introduction to Quantum Computing",
+    "description": "Quantum Computing is a powerful technology used in modern software development. Understanding the fundamentals of Quantum Computing is essential for building robust and efficient applications. This section covers the basic concepts and principles of Quantum Computing that every developer should know.",
+    "links": [
+      {
+        "title": "Official Quantum Computing Documentation",
+        "url": "https://docs.example.com/quantum-computing",
+        "type": "article"
+      },
+      {
+        "title": "Introduction to Quantum Computing - Video Tutorial",
+        "url": "https://www.example.com/tutorials/quantum-computing/introduction-to-quantum-computing",
+        "type": "video"
+      },
+      {
+        "title": "Understanding Introduction to Quantum Computing",
+        "url": "https://blog.example.com/quantum-computing/introduction-to-quantum-computing",
+        "type": "article"
+      }
+    ]
+  },
+  "node2": {
+    "title": "Quantum Computing Fundamentals",
+    "description": "The fundamentals of Quantum Computing include core concepts, syntax, and basic operations. Mastering these fundamentals is crucial before moving on to more advanced topics. This section provides a comprehensive overview of the essential building blocks of Quantum Computing.",
+    "links": [
+      {
+        "title": "Official Quantum Computing Documentation",
+        "url": "https://docs.example.com/quantum-computing",
+        "type": "article"
+      },
+      {
+        "title": "Quantum Computing Fundamentals - Video Tutorial",
+        "url": "https://www.example.com/tutorials/quantum-computing/quantum-computing-fundamentals",
+        "type": "video"
+      },
+      {
+        "title": "Understanding Quantum Computing Fundamentals",
+        "url": "https://blog.example.com/quantum-computing/quantum-computing-fundamentals",
+        "type": "article"
+      },
+      {
+        "title": "Complete Quantum Computing Course",
+        "url": "https://courses.example.com/quantum-computing",
+        "type": "course"
+      }
+    ]
+  },
+  "node3": {
+    "title": "Basic Quantum Computing Concepts",
+    "description": "This section covers important aspects of Quantum Computing that will help you become a more proficient developer. Understanding these concepts will enhance your ability to build robust and efficient Quantum Computing applications.",
+    "links": [
+      {
+        "title": "Official Quantum Computing Documentation",
+        "url": "https://docs.example.com/quantum-computing",
+        "type": "article"
+      },
+      {
+        "title": "Basic Quantum Computing Concepts - Video Tutorial",
+        "url": "https://www.example.com/tutorials/quantum-computing/basic-quantum-computing-concepts",
+        "type": "video"
+      },
+      {
+        "title": "Understanding Basic Quantum Computing Concepts",
+        "url": "https://blog.example.com/quantum-computing/basic-quantum-computing-concepts",
+        "type": "article"
+      }
+    ]
+  },
+  "node4": {
+    "title": "Intermediate Quantum Computing",
+    "description": "This section covers important aspects of Quantum Computing that will help you become a more proficient developer. Understanding these concepts will enhance your ability to build robust and efficient Quantum Computing applications.",
+    "links": [
+      {
+        "title": "Official Quantum Computing Documentation",
+        "url": "https://docs.example.com/quantum-computing",
+        "type": "article"
+      },
+      {
+        "title": "Intermediate Quantum Computing - Video Tutorial",
+        "url": "https://www.example.com/tutorials/quantum-computing/intermediate-quantum-computing",
+        "type": "video"
+      },
+      {
+        "title": "Understanding Intermediate Quantum Computing",
+        "url": "https://blog.example.com/quantum-computing/intermediate-quantum-computing",
+        "type": "article"
+      },
+      {
+        "title": "Complete Quantum Computing Course",
+        "url": "https://courses.example.com/quantum-computing",
+        "type": "course"
+      }
+    ]
+  },
+  "node5": {
+    "title": "Advanced Quantum Computing Techniques",
+    "description": "Advanced Quantum Computing techniques allow developers to build more sophisticated and optimized solutions. This section covers complex patterns, performance optimization, and advanced features that experienced Quantum Computing developers should understand.",
+    "links": [
+      {
+        "title": "Official Quantum Computing Documentation",
+        "url": "https://docs.example.com/quantum-computing",
+        "type": "article"
+      },
+      {
+        "title": "Advanced Quantum Computing Techniques - Video Tutorial",
+        "url": "https://www.example.com/tutorials/quantum-computing/advanced-quantum-computing-techniques",
+        "type": "video"
+      },
+      {
+        "title": "Understanding Advanced Quantum Computing Techniques",
+        "url": "https://blog.example.com/quantum-computing/advanced-quantum-computing-techniques",
+        "type": "article"
+      },
+      {
+        "title": "Complete Quantum Computing Course",
+        "url": "https://courses.example.com/quantum-computing",
+        "type": "course"
+      }
+    ]
+  },
+  "node6": {
+    "title": "Quantum Computing Best Practices",
+    "description": "Following best practices in Quantum Computing development ensures code quality, maintainability, and performance. This section outlines industry-standard practices, coding conventions, and design patterns recommended for Quantum Computing projects.",
+    "links": [
+      {
+        "title": "Official Quantum Computing Documentation",
+        "url": "https://docs.example.com/quantum-computing",
+        "type": "article"
+      },
+      {
+        "title": "Quantum Computing Best Practices - Video Tutorial",
+        "url": "https://www.example.com/tutorials/quantum-computing/quantum-computing-best-practices",
+        "type": "video"
+      },
+      {
+        "title": "Understanding Quantum Computing Best Practices",
+        "url": "https://blog.example.com/quantum-computing/quantum-computing-best-practices",
+        "type": "article"
+      },
+      {
+        "title": "Complete Quantum Computing Course",
+        "url": "https://courses.example.com/quantum-computing",
+        "type": "course"
+      }
+    ]
+  },
+  "node7": {
+    "title": "Quantum Computing Tools and Frameworks",
+    "description": "Various tools and frameworks exist to enhance Quantum Computing development productivity. This section introduces popular Quantum Computing frameworks, libraries, and development tools that can streamline your workflow and help you build better applications.",
+    "links": [
+      {
+        "title": "Official Quantum Computing Documentation",
+        "url": "https://docs.example.com/quantum-computing",
+        "type": "article"
+      },
+      {
+        "title": "Quantum Computing Tools and Frameworks - Video Tutorial",
+        "url": "https://www.example.com/tutorials/quantum-computing/quantum-computing-tools-and-frameworks",
+        "type": "video"
+      },
+      {
+        "title": "Understanding Quantum Computing Tools and Frameworks",
+        "url": "https://blog.example.com/quantum-computing/quantum-computing-tools-and-frameworks",
+        "type": "article"
+      }
+    ]
+  },
+  "node8": {
+    "title": "Testing in Quantum Computing",
+    "description": "Testing is a critical aspect of Quantum Computing development to ensure reliability and correctness. This section covers testing methodologies, frameworks, and best practices specific to Quantum Computing applications.",
+    "links": [
+      {
+        "title": "Official Quantum Computing Documentation",
+        "url": "https://docs.example.com/quantum-computing",
+        "type": "article"
+      },
+      {
+        "title": "Testing in Quantum Computing - Video Tutorial",
+        "url": "https://www.example.com/tutorials/quantum-computing/testing-in-quantum-computing",
+        "type": "video"
+      },
+      {
+        "title": "Understanding Testing in Quantum Computing",
+        "url": "https://blog.example.com/quantum-computing/testing-in-quantum-computing",
+        "type": "article"
+      }
+    ]
+  },
+  "node9": {
+    "title": "Deploying Quantum Computing Applications",
+    "description": "Deploying Quantum Computing applications to production environments requires careful planning and execution. This section covers deployment strategies, configuration management, and monitoring techniques for Quantum Computing applications in production.",
+    "links": [
+      {
+        "title": "Official Quantum Computing Documentation",
+        "url": "https://docs.example.com/quantum-computing",
+        "type": "article"
+      },
+      {
+        "title": "Deploying Quantum Computing Applications - Video Tutorial",
+        "url": "https://www.example.com/tutorials/quantum-computing/deploying-quantum-computing-applications",
+        "type": "video"
+      },
+      {
+        "title": "Understanding Deploying Quantum Computing Applications",
+        "url": "https://blog.example.com/quantum-computing/deploying-quantum-computing-applications",
+        "type": "article"
+      }
+    ]
+  },
+  "node10": {
+    "title": "Quantum Computing in Production",
+    "description": "Deploying Quantum Computing applications to production environments requires careful planning and execution. This section covers deployment strategies, configuration management, and monitoring techniques for Quantum Computing applications in production.",
+    "links": [
+      {
+        "title": "Official Quantum Computing Documentation",
+        "url": "https://docs.example.com/quantum-computing",
+        "type": "article"
+      },
+      {
+        "title": "Quantum Computing in Production - Video Tutorial",
+        "url": "https://www.example.com/tutorials/quantum-computing/quantum-computing-in-production",
+        "type": "video"
+      },
+      {
+        "title": "Understanding Quantum Computing in Production",
+        "url": "https://blog.example.com/quantum-computing/quantum-computing-in-production",
+        "type": "article"
+      }
+    ]
+  },
+  "node11": {
+    "title": "Scaling Quantum Computing Solutions",
+    "description": "This section covers important aspects of Quantum Computing that will help you become a more proficient developer. Understanding these concepts will enhance your ability to build robust and efficient Quantum Computing applications.",
+    "links": [
+      {
+        "title": "Official Quantum Computing Documentation",
+        "url": "https://docs.example.com/quantum-computing",
+        "type": "article"
+      },
+      {
+        "title": "Scaling Quantum Computing Solutions - Video Tutorial",
+        "url": "https://www.example.com/tutorials/quantum-computing/scaling-quantum-computing-solutions",
+        "type": "video"
+      },
+      {
+        "title": "Understanding Scaling Quantum Computing Solutions",
+        "url": "https://blog.example.com/quantum-computing/scaling-quantum-computing-solutions",
+        "type": "article"
+      },
+      {
+        "title": "Complete Quantum Computing Course",
+        "url": "https://courses.example.com/quantum-computing",
+        "type": "course"
+      }
+    ]
+  },
+  "node12": {
+    "title": "Future of Quantum Computing",
+    "description": "This section covers important aspects of Quantum Computing that will help you become a more proficient developer. Understanding these concepts will enhance your ability to build robust and efficient Quantum Computing applications.",
+    "links": [
+      {
+        "title": "Official Quantum Computing Documentation",
+        "url": "https://docs.example.com/quantum-computing",
+        "type": "article"
+      },
+      {
+        "title": "Future of Quantum Computing - Video Tutorial",
+        "url": "https://www.example.com/tutorials/quantum-computing/future-of-quantum-computing",
+        "type": "video"
+      },
+      {
+        "title": "Understanding Future of Quantum Computing",
+        "url": "https://blog.example.com/quantum-computing/future-of-quantum-computing",
+        "type": "article"
+      }
+    ]
+  }
+}

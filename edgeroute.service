@@ -1,0 +1,15 @@
+[Unit]
+Description=EdgeRoute Web Application
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/edgeroute
+Environment="PATH=/var/www/edgeroute/venv/bin"
+EnvironmentFile=/var/www/edgeroute/.env
+ExecStart=/var/www/edgeroute/venv/bin/gunicorn --workers 4 --bind 127.0.0.1:5000 wsgi:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

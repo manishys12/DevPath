@@ -1,0 +1,30 @@
+<footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>EdgeRoute</h5>
+                <p>Learn skills via structured roadmaps, track your progress, and engage with rich content.</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{ url_for('main.index') }}" class="text-white">Home</a></li>
+                    <li><a href="{{ url_for('roadmap.list_roadmaps') }}" class="text-white">Roadmaps</a></li>
+                    <li><a href="{{ url_for('main.about') }}" class="text-white">About</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Connect</h5>
+                <div class="d-flex gap-3 fs-4">
+                    <a href="https://github.com/manish12ys" class="text-white"><i class="fab fa-github"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="text-center">
+            <p class="mb-0">&copy; 2023 EdgeRoute. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

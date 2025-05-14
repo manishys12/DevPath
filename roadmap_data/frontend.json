@@ -1,0 +1,432 @@
+{
+  "node1": {
+    "title": "HTML Foundations",
+    "description": "HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser. It defines the structure and content of web pages. Understanding HTML fundamentals is essential for any frontend developer, as it forms the foundation of all web development. Key concepts include document structure, semantic elements, forms, tables, and accessibility attributes.",
+    "links": [
+      {
+        "title": "MDN: HTML Basics",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics",
+        "type": "article"
+      },
+      {
+        "title": "HTML Full Course for Beginners",
+        "url": "https://www.youtube.com/watch?v=kUMe1FH4CHE",
+        "type": "video"
+      },
+      {
+        "title": "Learn HTML - W3Schools",
+        "url": "https://www.w3schools.com/html/",
+        "type": "article"
+      }
+    ]
+  },
+  "node2": {
+    "title": "CSS Fundamentals",
+    "description": "CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of a document written in HTML. It controls the layout, formatting, and visual appearance of web pages. CSS fundamentals include selectors, properties, values, the box model, positioning, and the cascade (how styles override each other). Understanding these concepts allows developers to create visually appealing and responsive designs. CSS is powerful yet complex, with concepts like specificity, inheritance, and the cascade requiring careful attention. Modern CSS has evolved significantly with features like Flexbox, Grid, and custom properties (variables) that make complex layouts and design systems more manageable.",
+    "links": [
+      {
+        "title": "MDN: CSS Basics",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics",
+        "type": "article"
+      },
+      {
+        "title": "CSS Crash Course For Absolute Beginners",
+        "url": "https://www.youtube.com/watch?v=yfoY53QXEnI",
+        "type": "video"
+      },
+      {
+        "title": "CSS Box Model",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model",
+        "type": "article"
+      },
+      {
+        "title": "Learn CSS - Web.dev",
+        "url": "https://web.dev/learn/css/",
+        "type": "course"
+      }
+    ]
+  },
+  "node3": {
+    "title": "CSS Layout Techniques",
+    "description": "CSS layout techniques are methods for arranging elements on a web page. Modern CSS offers powerful tools like Flexbox and Grid that have revolutionized web layout. Flexbox excels at one-dimensional layouts (rows or columns), making it perfect for components like navigation bars or card layouts. CSS Grid provides a two-dimensional system ideal for complex page layouts. These modern techniques replace older approaches like floats and positioning, offering more flexibility and control with less code. Understanding when to use each technique is crucial: Flexbox for component-level layouts and Grid for overall page structure. Mastering these layout methods enables developers to create responsive designs that adapt seamlessly to different screen sizes and devices.",
+    "links": [
+      {
+        "title": "A Complete Guide to Flexbox",
+        "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+        "type": "article"
+      },
+      {
+        "title": "A Complete Guide to CSS Grid",
+        "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+        "type": "article"
+      },
+      {
+        "title": "Flexbox vs. CSS Grid",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout",
+        "type": "article"
+      },
+      {
+        "title": "CSS Grid Tutorial",
+        "url": "https://www.youtube.com/watch?v=jV8B24rSN5o",
+        "type": "video"
+      },
+      {
+        "title": "Flexbox Froggy - A game for learning Flexbox",
+        "url": "https://flexboxfroggy.com/",
+        "type": "article"
+      }
+    ]
+  },
+  "node4": {
+    "title": "Responsive Web Design",
+    "description": "Responsive Web Design (RWD) is an approach to web design that makes web pages render well on a variety of devices and window or screen sizes. It uses HTML and CSS to automatically resize, hide, shrink, or enlarge a website to make it look good on all devices, from desktop computers to mobile phones. Key techniques include fluid grids, flexible images, and CSS media queries. The mobile-first approach, where designs are created for mobile devices first and then enhanced for larger screens, has become standard practice. Responsive design eliminates the need for separate mobile websites while ensuring a consistent user experience across devices. This approach is essential in today's multi-device world where users expect websites to function seamlessly regardless of how they access them.",
+    "links": [
+      {
+        "title": "Responsive Web Design Basics",
+        "url": "https://web.dev/responsive-web-design-basics/",
+        "type": "article"
+      },
+      {
+        "title": "CSS Media Queries",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries",
+        "type": "article"
+      },
+      {
+        "title": "Mobile First Design",
+        "url": "https://www.youtube.com/watch?v=0ohtVzCSHqs",
+        "type": "video"
+      },
+      {
+        "title": "Responsive Images",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images",
+        "type": "article"
+      }
+    ]
+  },
+  "node5": {
+    "title": "JavaScript Basics",
+    "description": "JavaScript is a high-level, interpreted programming language that is a core technology of the World Wide Web. It allows developers to create dynamic, interactive web content. JavaScript basics include variables, data types, operators, control structures (if statements, loops), functions, and objects. Understanding these fundamentals is essential before moving on to more advanced concepts. JavaScript uses both object-oriented and functional programming paradigms, making it flexible but sometimes challenging to master. The language has evolved significantly with ECMAScript standards, introducing features like arrow functions, template literals, destructuring, and modules that make code more concise and maintainable. As the only programming language natively supported by web browsers, JavaScript is an essential skill for frontend developers.",
+    "links": [
+      {
+        "title": "JavaScript Basics - MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics",
+        "type": "article"
+      },
+      {
+        "title": "JavaScript Tutorial for Beginners",
+        "url": "https://www.youtube.com/watch?v=W6NZfCO5SIk",
+        "type": "video"
+      },
+      {
+        "title": "JavaScript.info - The Modern JavaScript Tutorial",
+        "url": "https://javascript.info/",
+        "type": "article"
+      },
+      {
+        "title": "Eloquent JavaScript - Online Book",
+        "url": "https://eloquentjavascript.net/",
+        "type": "article"
+      }
+    ]
+  },
+  "node6": {
+    "title": "DOM Manipulation",
+    "description": "DOM (Document Object Model) manipulation is the process of using JavaScript to modify the content, structure, and style of a webpage. The DOM represents the document as a tree of objects, where each node represents a part of the document (elements, attributes, text). JavaScript can access and modify this tree, enabling dynamic interactions without page reloads. Key DOM manipulation techniques include selecting elements, modifying content and attributes, creating and removing elements, and handling events. Understanding event propagation, delegation, and the browser event loop is crucial for building responsive interfaces. While vanilla JavaScript DOM manipulation is fundamental, many developers use libraries or frameworks that abstract these operations for better developer experience and cross-browser compatibility.",
+    "links": [
+      {
+        "title": "DOM Introduction - MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction",
+        "type": "article"
+      },
+      {
+        "title": "JavaScript DOM Manipulation Course",
+        "url": "https://www.youtube.com/watch?v=5fb2aPlgoys",
+        "type": "video"
+      },
+      {
+        "title": "JavaScript DOM Events",
+        "url": "https://www.w3schools.com/js/js_htmldom_events.asp",
+        "type": "article"
+      },
+      {
+        "title": "Event Bubbling and Capturing",
+        "url": "https://javascript.info/bubbling-and-capturing",
+        "type": "article"
+      }
+    ]
+  },
+  "node7": {
+    "title": "ES6+ Features",
+    "description": "ES6+ refers to ECMAScript 2015 (ES6) and later versions, which introduced significant enhancements to JavaScript. These modern features have transformed how developers write JavaScript code, making it more concise, readable, and powerful. Key ES6+ features include arrow functions, template literals, destructuring, spread/rest operators, classes, modules, promises, async/await, and block-scoped variables (let/const). These features simplify common tasks like handling asynchronous operations, working with arrays and objects, and organizing code. Understanding ES6+ is essential for modern frontend development, as these features are widely used in frameworks and libraries. While browser support for ES6+ has improved dramatically, transpilers like Babel are still commonly used to ensure compatibility with older browsers.",
+    "links": [
+      {
+        "title": "ES6 Features Overview",
+        "url": "https://www.w3schools.com/js/js_es6.asp",
+        "type": "article"
+      },
+      {
+        "title": "JavaScript ES6, ES7, ES8: Learn to Code on the Bleeding Edge",
+        "url": "https://www.youtube.com/watch?v=nZ1DMMsyVyI",
+        "type": "video"
+      },
+      {
+        "title": "ES6 In Depth - MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment",
+        "type": "article"
+      },
+      {
+        "title": "Async/Await in JavaScript",
+        "url": "https://javascript.info/async-await",
+        "type": "article"
+      }
+    ]
+  },
+  "node8": {
+    "title": "Web APIs",
+    "description": "Web APIs (Application Programming Interfaces) are interfaces provided by browsers that allow JavaScript to interact with various browser features and services. These APIs extend JavaScript's capabilities beyond DOM manipulation, enabling developers to create more sophisticated web applications. Essential Web APIs include Fetch (for making HTTP requests), Storage (localStorage and sessionStorage), Geolocation, Canvas (for drawing graphics), Web Audio, WebSockets (for real-time communication), and the History API. Modern browsers also support more advanced APIs like Service Workers (for offline functionality), Web Workers (for multi-threading), WebRTC (for peer-to-peer communication), and the Notifications API. Understanding these APIs is crucial for building feature-rich web applications that can compete with native apps in functionality while maintaining the accessibility and reach of the web.",
+    "links": [
+      {
+        "title": "Web APIs - MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API",
+        "type": "article"
+      },
+      {
+        "title": "Fetch API",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+        "type": "article"
+      },
+      {
+        "title": "JavaScript Web APIs Tutorial",
+        "url": "https://www.youtube.com/watch?v=FIORjGvT0kk",
+        "type": "video"
+      },
+      {
+        "title": "Local Storage and Session Storage",
+        "url": "https://javascript.info/localstorage",
+        "type": "article"
+      },
+      {
+        "title": "Service Workers: an Introduction",
+        "url": "https://developers.google.com/web/fundamentals/primers/service-workers",
+        "type": "article"
+      }
+    ]
+  },
+  "node9": {
+    "title": "Frontend Build Tools",
+    "description": "Frontend build tools are utilities that automate and enhance the development workflow for web applications. They handle tasks like bundling modules, transpiling modern JavaScript to browser-compatible code, optimizing assets, and providing development servers with hot reloading. Popular build tools include Webpack (a powerful and configurable bundler), Vite (a newer, faster build tool), Parcel (zero-configuration bundler), and task runners like npm scripts. These tools often work alongside transpilers like Babel (for JavaScript) and PostCSS/Sass (for CSS). Understanding build tools is essential for modern frontend development, as they enable developers to use the latest language features and modular code organization while ensuring optimal production builds. While the configuration can be complex, these tools significantly improve development experience and application performance.",
+    "links": [
+      {
+        "title": "Introduction to Webpack",
+        "url": "https://webpack.js.org/concepts/",
+        "type": "article"
+      },
+      {
+        "title": "Getting Started with Vite",
+        "url": "https://vitejs.dev/guide/",
+        "type": "article"
+      },
+      {
+        "title": "Modern JavaScript Tooling with Webpack",
+        "url": "https://www.youtube.com/watch?v=5IG4UmULyoA",
+        "type": "video"
+      },
+      {
+        "title": "Babel User Guide",
+        "url": "https://babeljs.io/docs/en/usage",
+        "type": "article"
+      },
+      {
+        "title": "NPM Scripts as a Build Tool",
+        "url": "https://deliciousbrains.com/npm-build-script/",
+        "type": "article"
+      }
+    ]
+  },
+  "node10": {
+    "title": "React Fundamentals",
+    "description": "React is a JavaScript library for building user interfaces, particularly single-page applications. Developed and maintained by Facebook (now Meta), it has become one of the most popular frontend frameworks. React fundamentals include components (the building blocks of React applications), JSX (a syntax extension that allows HTML-like code in JavaScript), props (for passing data between components), and state (for managing component data). React's component-based architecture promotes reusability and separation of concerns, while its virtual DOM implementation optimizes rendering performance. The React ecosystem includes tools like Create React App (for project setup), React Router (for navigation), and various state management solutions. Understanding React fundamentals provides a solid foundation for building modern, interactive web applications with a declarative and component-based approach.",
+    "links": [
+      {
+        "title": "React Official Documentation",
+        "url": "https://reactjs.org/docs/getting-started.html",
+        "type": "article"
+      },
+      {
+        "title": "React Tutorial for Beginners",
+        "url": "https://www.youtube.com/watch?v=SqcY0GlETPk",
+        "type": "video"
+      },
+      {
+        "title": "Thinking in React",
+        "url": "https://reactjs.org/docs/thinking-in-react.html",
+        "type": "article"
+      },
+      {
+        "title": "React Hooks Introduction",
+        "url": "https://reactjs.org/docs/hooks-intro.html",
+        "type": "article"
+      },
+      {
+        "title": "Create React App",
+        "url": "https://create-react-app.dev/docs/getting-started",
+        "type": "article"
+      }
+    ]
+  },
+  "node11": {
+    "title": "State Management",
+    "description": "State management in frontend development refers to how applications maintain, update, and share data across components. As applications grow in complexity, managing state becomes challenging, especially in component-based frameworks like React, Vue, or Angular. Various approaches and libraries have emerged to address this challenge. Local component state is suitable for simple UI states, while context/provide-inject systems help share state without prop drilling. For more complex applications, dedicated state management libraries like Redux, MobX, Zustand, or Pinia offer centralized stores with predictable state updates. Modern approaches also include server state management tools like React Query or SWR, which handle data fetching, caching, and synchronization with server data. Understanding different state management approaches and when to use each is crucial for building maintainable and performant frontend applications.",
+    "links": [
+      {
+        "title": "Redux Documentation",
+        "url": "https://redux.js.org/introduction/getting-started",
+        "type": "article"
+      },
+      {
+        "title": "React Context API",
+        "url": "https://reactjs.org/docs/context.html",
+        "type": "article"
+      },
+      {
+        "title": "State Management in React",
+        "url": "https://www.youtube.com/watch?v=35lXWvCuM8o",
+        "type": "video"
+      },
+      {
+        "title": "Introduction to MobX",
+        "url": "https://mobx.js.org/README.html",
+        "type": "article"
+      },
+      {
+        "title": "React Query Overview",
+        "url": "https://tanstack.com/query/latest/docs/react/overview",
+        "type": "article"
+      }
+    ]
+  },
+  "node12": {
+    "title": "Testing in Frontend",
+    "description": "Testing in frontend development ensures that applications work as expected and remain stable as they evolve. Different testing approaches serve complementary purposes in a comprehensive testing strategy. Unit tests verify individual functions and components in isolation, using frameworks like Jest, Vitest, or Mocha. Component tests check how UI components render and behave with user interactions, often using libraries like React Testing Library or Vue Testing Library. Integration tests verify that different parts of the application work together correctly. End-to-end (E2E) tests simulate real user scenarios across the entire application, using tools like Cypress, Playwright, or Selenium. Additionally, visual regression testing compares screenshots to catch unexpected UI changes. Implementing a balanced testing approach improves code quality, prevents regressions, and facilitates refactoring, ultimately leading to more reliable and maintainable frontend applications.",
+    "links": [
+      {
+        "title": "Jest Documentation",
+        "url": "https://jestjs.io/docs/getting-started",
+        "type": "article"
+      },
+      {
+        "title": "React Testing Library",
+        "url": "https://testing-library.com/docs/react-testing-library/intro/",
+        "type": "article"
+      },
+      {
+        "title": "Cypress End-to-End Testing",
+        "url": "https://docs.cypress.io/guides/overview/why-cypress",
+        "type": "article"
+      },
+      {
+        "title": "JavaScript Testing Fundamentals",
+        "url": "https://www.youtube.com/watch?v=r9HdJ8P6GQI",
+        "type": "video"
+      },
+      {
+        "title": "Testing JavaScript Applications",
+        "url": "https://testingjavascript.com/",
+        "type": "course"
+      }
+    ]
+  },
+  "node13": {
+    "title": "Performance Optimization",
+    "description": "Performance optimization in frontend development focuses on making web applications load faster and run more smoothly, enhancing user experience and potentially improving search engine rankings. Key performance metrics include loading speed (First Contentful Paint, Largest Contentful Paint), interactivity (First Input Delay, Time to Interactive), and visual stability (Cumulative Layout Shift). Common optimization techniques include code splitting (loading only necessary code), lazy loading (deferring non-critical resources), image optimization (proper formats, sizes, and compression), caching strategies, and minimizing render-blocking resources. Modern tools like Lighthouse, WebPageTest, and browser DevTools help identify performance bottlenecks. Additionally, architectural decisions like implementing server-side rendering (SSR) or static site generation (SSG) can significantly improve perceived performance. As web applications grow more complex, performance optimization becomes increasingly important for maintaining a competitive user experience across various devices and network conditions.",
+    "links": [
+      {
+        "title": "Web Performance - MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Performance",
+        "type": "article"
+      },
+      {
+        "title": "Web Vitals",
+        "url": "https://web.dev/vitals/",
+        "type": "article"
+      },
+      {
+        "title": "JavaScript Performance Optimization",
+        "url": "https://www.youtube.com/watch?v=cLxNdLK--yI",
+        "type": "video"
+      },
+      {
+        "title": "Image Optimization",
+        "url": "https://web.dev/fast/#optimize-your-images",
+        "type": "article"
+      },
+      {
+        "title": "Lighthouse Performance Auditing",
+        "url": "https://developers.google.com/web/tools/lighthouse",
+        "type": "article"
+      }
+    ]
+  },
+  "node14": {
+    "title": "Web Accessibility (A11y)",
+    "description": "Web accessibility (often abbreviated as A11y) ensures that websites and web applications are usable by people with disabilities. This includes individuals with visual, auditory, motor, or cognitive impairments. Implementing accessibility is not only a moral and often legal requirement but also improves usability for all users. Key accessibility principles include providing text alternatives for non-text content, ensuring keyboard navigability, maintaining sufficient color contrast, creating a logical document structure with proper heading levels, and implementing ARIA (Accessible Rich Internet Applications) attributes when necessary. The Web Content Accessibility Guidelines (WCAG) provide standards at different conformance levels (A, AA, AAA). Modern frontend frameworks often include accessibility features, but developers must still understand and apply accessibility principles. Testing tools like axe, WAVE, and screen readers help identify accessibility issues. By prioritizing accessibility from the start of development, teams can create inclusive web experiences that reach the widest possible audience.",
+    "links": [
+      {
+        "title": "Web Accessibility Introduction - MDN",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility",
+        "type": "article"
+      },
+      {
+        "title": "WCAG Guidelines",
+        "url": "https://www.w3.org/WAI/standards-guidelines/wcag/",
+        "type": "article"
+      },
+      {
+        "title": "Web Accessibility Tutorial",
+        "url": "https://www.youtube.com/watch?v=qr0ujkLLgmE",
+        "type": "video"
+      },
+      {
+        "title": "A11y Project Checklist",
+        "url": "https://www.a11yproject.com/checklist/",
+        "type": "article"
+      },
+      {
+        "title": "ARIA - Accessible Rich Internet Applications",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA",
+        "type": "article"
+      }
+    ]
+  },
+  "node15": {
+    "title": "TypeScript",
+    "description": "TypeScript is a strongly typed programming language that builds on JavaScript, adding static type definitions. Types provide a way to describe the shape of an object, allowing TypeScript to validate that your code is working correctly before it runs. It is a superset of JavaScript, meaning any valid JavaScript code is also valid TypeScript code. Key TypeScript features include interfaces, type aliases, enums, generics, and utility types. The TypeScript compiler transpiles TypeScript code to JavaScript, making it compatible with all browsers and JavaScript runtimes. TypeScript has gained significant adoption in frontend development, particularly in large-scale applications, as it helps catch errors during development, improves code documentation, and enhances IDE support with better autocompletion and refactoring tools. Many modern frontend frameworks and libraries, including Angular, React, and Vue, have excellent TypeScript integration, making it an increasingly essential skill for frontend developers.",
+    "links": [
+      {
+        "title": "TypeScript Documentation",
+        "url": "https://www.typescriptlang.org/docs/",
+        "type": "article"
+      },
+      {
+        "title": "TypeScript for JavaScript Programmers",
+        "url": "https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html",
+        "type": "article"
+      },
+      {
+        "title": "TypeScript Course for Beginners",
+        "url": "https://www.youtube.com/watch?v=BwuLxPH8IDs",
+        "type": "video"
+      },
+      {
+        "title": "React with TypeScript",
+        "url": "https://react-typescript-cheatsheet.netlify.app/",
+        "type": "article"
+      },
+      {
+        "title": "TypeScript Playground",
+        "url": "https://www.typescriptlang.org/play",
+        "type": "article"
+      }
+    ]
+  }
+}

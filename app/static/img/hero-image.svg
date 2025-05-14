@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#F8F9FA"/>
+  <path d="M200 50L350 250H50L200 50Z" fill="#4361EE" fill-opacity="0.7"/>
+  <circle cx="200" cy="150" r="50" fill="#38B000" fill-opacity="0.7"/>
+  <rect x="125" y="125" width="150" height="150" rx="10" fill="#FF5C8D" fill-opacity="0.7"/>
+  <path d="M50 100H150V200H50V100Z" fill="#FFBE0B" fill-opacity="0.7"/>
+  <text x="200" y="280" font-family="Arial" font-size="16" text-anchor="middle" fill="#333333">Learning Paths</text>
+</svg>

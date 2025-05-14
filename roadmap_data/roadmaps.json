@@ -1,0 +1,639 @@
+{
+  "roadmaps": [
+    {
+      "id": "frontend",
+      "title": "Modern Frontend Development",
+      "description": "A comprehensive guide to becoming a proficient frontend developer with modern technologies and best practices",
+      "category": "Web Development",
+      "difficulty": "Beginner to Advanced",
+      "tags": [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "React",
+        "TypeScript",
+        "Web Performance"
+      ]
+    },
+    {
+      "id": "web-design",
+      "title": "Web Design Fundamentals",
+      "description": "A comprehensive guide to mastering the essential principles of web design",
+      "category": "Web Development",
+      "difficulty": "Beginner to Intermediate",
+      "tags": [
+        "Design",
+        "UI/UX",
+        "Typography",
+        "Color Theory",
+        "Layout",
+        "Responsive"
+      ]
+    },
+    {
+      "id": "backend",
+      "title": "Backend Developer",
+      "description": "Step by step guide to becoming a modern backend developer",
+      "category": "Web Development",
+      "difficulty": "Beginner to Advanced",
+      "tags": [
+        "Node.js",
+        "Python",
+        "Java",
+        "Databases",
+        "API",
+        "Server"
+      ]
+    },
+    {
+      "id": "python",
+      "title": "Python Developer",
+      "description": "Step by step guide to becoming a Python developer",
+      "category": "Programming Languages",
+      "difficulty": "Beginner to Advanced",
+      "tags": [
+        "Python",
+        "Django",
+        "Flask",
+        "Data Science",
+        "Machine Learning"
+      ]
+    },
+    {
+      "id": "javascript",
+      "title": "JavaScript Developer",
+      "description": "Step by step guide to becoming a JavaScript developer",
+      "category": "Programming Languages",
+      "difficulty": "Beginner to Advanced",
+      "tags": [
+        "JavaScript",
+        "ES6",
+        "Node.js",
+        "DOM",
+        "Async"
+      ]
+    },
+    {
+      "id": "react",
+      "title": "React Developer",
+      "description": "Step by step guide to becoming a React developer",
+      "category": "Web Development",
+      "difficulty": "Intermediate",
+      "tags": [
+        "React",
+        "JavaScript",
+        "Redux",
+        "Hooks",
+        "Components"
+      ]
+    },
+    {
+      "id": "ai-engineer",
+      "title": "AI Engineer",
+      "description": "Step by step guide to becoming an AI Engineer",
+      "category": "Artificial Intelligence",
+      "difficulty": "Advanced",
+      "tags": [
+        "Machine Learning",
+        "Deep Learning",
+        "Python",
+        "TensorFlow",
+        "PyTorch"
+      ]
+    },
+    {
+      "id": "data-analyst",
+      "title": "Data Analyst",
+      "description": "Step by step guide to becoming a Data Analyst",
+      "category": "Data Science",
+      "difficulty": "Intermediate",
+      "tags": [
+        "SQL",
+        "Python",
+        "Data Visualization",
+        "Statistics",
+        "Excel"
+      ]
+    },
+    {
+      "id": "devops",
+      "title": "DevOps Engineer",
+      "description": "Step by step guide to becoming a DevOps Engineer",
+      "category": "DevOps",
+      "difficulty": "Intermediate to Advanced",
+      "tags": [
+        "Docker",
+        "Kubernetes",
+        "CI/CD",
+        "Cloud",
+        "Monitoring",
+        "Infrastructure"
+      ]
+    },
+    {
+      "id": "angular",
+      "title": "Angular Developer",
+      "description": "Step by step guide to becoming an Angular developer",
+      "category": "Web Development",
+      "difficulty": "Intermediate",
+      "tags": [
+        "Angular",
+        "TypeScript",
+        "RxJS",
+        "NgRx",
+        "Components"
+      ]
+    },
+    {
+      "id": "vue",
+      "title": "Vue Developer",
+      "description": "Step by step guide to becoming a Vue developer",
+      "category": "Web Development",
+      "difficulty": "Intermediate",
+      "tags": [
+        "Vue",
+        "JavaScript",
+        "Vuex",
+        "Composition API",
+        "Components"
+      ]
+    },
+    {
+      "id": "nodejs",
+      "title": "Node.js Developer",
+      "description": "Step by step guide to becoming a Node.js developer",
+      "category": "Web Development",
+      "difficulty": "Intermediate",
+      "tags": [
+        "Node.js",
+        "JavaScript",
+        "Express",
+        "API",
+        "Server"
+      ]
+    },
+    {
+      "id": "java",
+      "title": "Java Developer",
+      "description": "Step by step guide to becoming a Java developer",
+      "category": "Programming Languages",
+      "difficulty": "Beginner to Advanced",
+      "tags": [
+        "Java",
+        "Spring",
+        "Hibernate",
+        "JVM",
+        "OOP"
+      ]
+    },
+    {
+      "id": "android",
+      "title": "Android Developer",
+      "description": "Step by step guide to becoming an Android developer",
+      "category": "Mobile Development",
+      "difficulty": "Intermediate to Advanced",
+      "tags": [
+        "Android",
+        "Kotlin",
+        "Java",
+        "Mobile",
+        "UI"
+      ]
+    },
+    {
+      "id": "ios",
+      "title": "iOS Developer",
+      "description": "Step by step guide to becoming an iOS developer",
+      "category": "Mobile Development",
+      "difficulty": "Intermediate to Advanced",
+      "tags": [
+        "iOS",
+        "Swift",
+        "SwiftUI",
+        "Mobile",
+        "UI"
+      ]
+    },
+    {
+      "id": "full-stack",
+      "title": "Full Stack Developer",
+      "description": "Step by step guide to becoming a full stack developer",
+      "category": "Web Development",
+      "difficulty": "Advanced",
+      "tags": [
+        "Frontend",
+        "Backend",
+        "Database",
+        "API",
+        "DevOps"
+      ]
+    },
+    {
+      "id": "ai-agents",
+      "title": "AI Agents Developer",
+      "description": "Step by step guide to becoming an AI Agents developer",
+      "category": "Artificial Intelligence",
+      "difficulty": "Advanced",
+      "tags": [
+        "AI",
+        "Agents",
+        "LLM",
+        "Autonomous",
+        "Python"
+      ]
+    },
+    {
+      "id": "ai-data-scientist",
+      "title": "AI Data Scientist",
+      "description": "Step by step guide to becoming an AI Data Scientist",
+      "category": "Data Science",
+      "difficulty": "Advanced",
+      "tags": [
+        "AI",
+        "Data Science",
+        "Machine Learning",
+        "Statistics",
+        "Python"
+      ]
+    },
+    {
+      "id": "ai-red-teaming",
+      "title": "AI Red Teaming",
+      "description": "Step by step guide to AI Red Teaming",
+      "category": "Artificial Intelligence",
+      "difficulty": "Advanced",
+      "tags": [
+        "AI",
+        "Security",
+        "Testing",
+        "Ethics",
+        "Prompt Engineering"
+      ]
+    },
+    {
+      "id": "api-design",
+      "title": "API Design",
+      "description": "Step by step guide to API Design",
+      "category": "Web Development",
+      "difficulty": "Intermediate",
+      "tags": [
+        "API",
+        "REST",
+        "GraphQL",
+        "Design",
+        "Backend"
+      ]
+    },
+    {
+      "id": "aspnet-core",
+      "title": "ASP.NET Core Developer",
+      "description": "Step by step guide to becoming an ASP.NET Core developer",
+      "category": "Web Development",
+      "difficulty": "Intermediate",
+      "tags": [
+        ".NET",
+        "C#",
+        "ASP.NET",
+        "Backend",
+        "Microsoft"
+      ]
+    },
+    {
+      "id": "blockchain",
+      "title": "Blockchain Developer",
+      "description": "Step by step guide to becoming a Blockchain developer",
+      "category": "Blockchain",
+      "difficulty": "Advanced",
+      "tags": [
+        "Blockchain",
+        "Smart Contracts",
+        "Ethereum",
+        "Solidity",
+        "Web3"
+      ]
+    },
+    {
+      "id": "cloudflare",
+      "title": "Cloudflare Developer",
+      "description": "Step by step guide to becoming a Cloudflare developer",
+      "category": "Cloud Computing",
+      "difficulty": "Intermediate",
+      "tags": [
+        "Cloudflare",
+        "CDN",
+        "Workers",
+        "Security",
+        "Performance"
+      ]
+    },
+    {
+      "id": "computer-science",
+      "title": "Computer Science",
+      "description": "Step by step guide to Computer Science fundamentals",
+      "category": "Computer Science",
+      "difficulty": "Beginner to Advanced",
+      "tags": [
+        "Algorithms",
+        "Data Structures",
+        "OS",
+        "Networks",
+        "Databases"
+      ]
+    },
+    {
+      "id": "cpp",
+      "title": "C++ Developer",
+      "description": "Step by step guide to becoming a C++ developer",
+      "category": "Programming Languages",
+      "difficulty": "Advanced",
+      "tags": [
+        "C++",
+        "OOP",
+        "STL",
+        "Memory Management",
+        "Performance"
+      ]
+    },
+    {
+      "id": "cyber-security",
+      "title": "Cyber Security Expert",
+      "description": "Step by step guide to becoming a Cyber Security expert",
+      "category": "Security",
+      "difficulty": "Advanced",
+      "tags": [
+        "Security",
+        "Networking",
+        "Cryptography",
+        "Penetration Testing",
+        "Defense"
+      ]
+    },
+    {
+      "id": "devrel",
+      "title": "Developer Relations",
+      "description": "Step by step guide to Developer Relations",
+      "category": "Developer Relations",
+      "difficulty": "Intermediate",
+      "tags": [
+        "DevRel",
+        "Community",
+        "Documentation",
+        "Speaking",
+        "Advocacy"
+      ]
+    },
+    {
+      "id": "engineering-manager",
+      "title": "Engineering Manager",
+      "description": "Step by step guide to becoming an Engineering Manager",
+      "category": "Management",
+      "difficulty": "Advanced",
+      "tags": [
+        "Management",
+        "Leadership",
+        "Team Building",
+        "Project Management",
+        "Mentoring"
+      ]
+    },
+    {
+      "id": "game-developer",
+      "title": "Game Developer",
+      "description": "Step by step guide to becoming a Game Developer",
+      "category": "Game Development",
+      "difficulty": "Intermediate to Advanced",
+      "tags": [
+        "Game Development",
+        "Unity",
+        "Unreal Engine",
+        "Graphics",
+        "Game Design"
+      ]
+    },
+    {
+      "id": "git-github",
+      "title": "Git and GitHub",
+      "description": "Step by step guide to mastering Git and GitHub",
+      "category": "Version Control",
+      "difficulty": "Beginner to Intermediate",
+      "tags": [
+        "Git",
+        "GitHub",
+        "Version Control",
+        "Collaboration",
+        "CI/CD"
+      ]
+    },
+    {
+      "id": "mlops",
+      "title": "MLOps Engineer",
+      "description": "Step by step guide to becoming an MLOps Engineer",
+      "category": "Machine Learning",
+      "difficulty": "Advanced",
+      "tags": [
+        "MLOps",
+        "Machine Learning",
+        "DevOps",
+        "CI/CD",
+        "Monitoring"
+      ]
+    },
+    {
+      "id": "php",
+      "title": "PHP Developer",
+      "description": "Step by step guide to becoming a PHP developer",
+      "category": "Web Development",
+      "difficulty": "Beginner to Intermediate",
+      "tags": [
+        "PHP",
+        "Laravel",
+        "Symfony",
+        "Backend",
+        "Web"
+      ]
+    },
+    {
+      "id": "postgresql-dba",
+      "title": "PostgreSQL DBA",
+      "description": "Step by step guide to becoming a PostgreSQL Database Administrator",
+      "category": "Database",
+      "difficulty": "Advanced",
+      "tags": [
+        "PostgreSQL",
+        "Database",
+        "SQL",
+        "Administration",
+        "Performance"
+      ]
+    },
+    {
+      "id": "product-manager",
+      "title": "Product Manager",
+      "description": "Step by step guide to becoming a Product Manager",
+      "category": "Product Management",
+      "difficulty": "Intermediate",
+      "tags": [
+        "Product",
+        "Management",
+        "Strategy",
+        "UX",
+        "Business"
+      ]
+    },
+    {
+      "id": "qa",
+      "title": "QA Engineer",
+      "description": "Step by step guide to becoming a QA Engineer",
+      "category": "Quality Assurance",
+      "difficulty": "Intermediate",
+      "tags": [
+        "QA",
+        "Testing",
+        "Automation",
+        "Quality",
+        "Test Cases"
+      ]
+    },
+    {
+      "id": "redis",
+      "title": "Redis Developer",
+      "description": "Step by step guide to becoming a Redis developer",
+      "category": "Database",
+      "difficulty": "Intermediate",
+      "tags": [
+        "Redis",
+        "Cache",
+        "NoSQL",
+        "Database",
+        "Performance"
+      ]
+    },
+    {
+      "id": "server-side-game-developer",
+      "title": "Server-Side Game Developer",
+      "description": "Step by step guide to becoming a Server-Side Game Developer",
+      "category": "Game Development",
+      "difficulty": "Advanced",
+      "tags": [
+        "Game Development",
+        "Backend",
+        "Networking",
+        "Scalability",
+        "Performance"
+      ]
+    },
+    {
+      "id": "software-architect",
+      "title": "Software Architect",
+      "description": "Step by step guide to becoming a Software Architect",
+      "category": "Software Architecture",
+      "difficulty": "Advanced",
+      "tags": [
+        "Architecture",
+        "Design Patterns",
+        "System Design",
+        "Scalability",
+        "Performance"
+      ]
+    },
+    {
+      "id": "sql",
+      "title": "SQL Developer",
+      "description": "Step by step guide to mastering SQL",
+      "category": "Database",
+      "difficulty": "Beginner to Advanced",
+      "tags": [
+        "SQL",
+        "Database",
+        "Queries",
+        "Performance",
+        "Data"
+      ]
+    },
+    {
+      "id": "system-design",
+      "title": "System Design",
+      "description": "Step by step guide to System Design",
+      "category": "Software Architecture",
+      "difficulty": "Advanced",
+      "tags": [
+        "System Design",
+        "Architecture",
+        "Scalability",
+        "Performance",
+        "Distributed Systems"
+      ]
+    },
+    {
+      "id": "technical-writer",
+      "title": "Technical Writer",
+      "description": "Step by step guide to becoming a Technical Writer",
+      "category": "Technical Writing",
+      "difficulty": "Intermediate",
+      "tags": [
+        "Documentation",
+        "Writing",
+        "Communication",
+        "Markdown",
+        "Docs as Code"
+      ]
+    },
+    {
+      "id": "terraform",
+      "title": "Terraform Developer",
+      "description": "Step by step guide to becoming a Terraform developer",
+      "category": "DevOps",
+      "difficulty": "Intermediate",
+      "tags": [
+        "Terraform",
+        "IaC",
+        "DevOps",
+        "Cloud",
+        "Infrastructure"
+      ]
+    },
+    {
+      "id": "typescript",
+      "title": "TypeScript Developer",
+      "description": "Step by step guide to becoming a TypeScript developer",
+      "category": "Programming Languages",
+      "difficulty": "Intermediate",
+      "tags": [
+        "TypeScript",
+        "JavaScript",
+        "Static Typing",
+        "Web",
+        "Frontend"
+      ]
+    },
+    {
+      "id": "ux-design",
+      "title": "UX Designer",
+      "description": "Step by step guide to becoming a UX Designer",
+      "category": "Design",
+      "difficulty": "Intermediate",
+      "tags": [
+        "UX",
+        "Design",
+        "User Research",
+        "Wireframing",
+        "Prototyping"
+      ]
+    },
+    {
+      "id": "quantum-computing",
+      "title": "Quantum Computing Development Roadmap",
+      "description": "A comprehensive guide to becoming a proficient Quantum Computing developer with modern technologies and best practices",
+      "category": "DevOps",
+      "difficulty": "Intermediate",
+      "tags": [
+        "Quantum Computing",
+        "Testing",
+        "Backend",
+        "Deep Learning",
+        "TensorFlow",
+        "Unreal Engine"
+      ]
+    }
+  ]
+}
