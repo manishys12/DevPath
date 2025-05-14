@@ -1,48 +1,9 @@
-services:
-  - type: web
-    name: edgeroute
-    env: python
-    buildCommand: |
-      pip install -r requirements.txt
-      python -m flask db upgrade
-    startCommand: gunicorn "wsgi:application" --bind 0.0.0.0:$PORT --workers 4 --threads 2 --timeout 120 --access-logfile - --error-logfile - --capture-output --enable-stdio-inheritance
-    envVars:
-      - key: FLASK_APP
-        value: app
-      - key: FLASK_ENV
-        value: production
-      - key: PYTHON_VERSION
-        value: 3.11.0
-      - key: DATABASE_URL
-        fromDatabase:
-          name: edgeroute-db
-          property: connectionString
-      - key: SECRET_KEY
-        generateValue: true
-      - key: LOG_TO_STDOUT
-        value: true
-      - key: SENTRY_DSN
-        sync: false
-    healthCheckPath: /
-    autoDeploy: true
-    plan: free
-
-  # Static assets service (optional)
-  - type: web
-    name: edgeroute-static
-    env: static
-    buildCommand: echo "Static assets ready"
-    staticPublishPath: ./app/static
-    routes:
-      - path: /static
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.0
-    autoDeploy: true
-    plan: free
-
-databases:
-  - name: edgeroute-db
-    databaseName: edgeroute
-    user: edgeroute
-    plan: free
+   services:
+     - type: web
+       name: edgeroute
+       env: python
+       buildCommand: pip install -r requirements.txt
+       startCommand: gunicorn wsgi:app
+       envVars:
+         - key: DATABASE_URL
+           value: postgresql://edgeroute_user:KOUhEUE7NWIHsN3FM1mZNMANK5oCzh1P@dpg-d0id73be5dus7390v91g-a/edgeroute_6hdw
