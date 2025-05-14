@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1 class="h3 mb-0">Version {{ version_number }}</h1>
+            <p class="text-muted">{{ roadmap.title }}</p>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <a href="{{ url_for('roadmap.roadmap_versions', roadmap_id=roadmap.id) }}" class="btn btn-outline-primary">
+                <i class="fas fa-arrow-left me-2"></i> Back to Versions
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <!-- Roadmap Info -->
+            <div class="card border-0 shadow-sm mb-4 roadmap-gradient-container">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">
+                        <i class="fas fa-info-circle me-2"></i> Roadmap Information
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Title:</strong> {{ version_data.roadmap.title }}</p>
+                            <p><strong>Category:</strong> {{ version_data.roadmap.category }}</p>
+                            <p><strong>Difficulty:</strong> {{ version_data.roadmap.difficulty }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Tags:</strong> {{ version_data.roadmap.tags }}</p>
+                            <p><strong>Node Count:</strong> {{ version_data.nodes|length }}</p>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h5>Description</h5>
+                        <p>{{ version_data.roadmap.description }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nodes -->
+            <div class="card border-0 shadow-sm roadmap-gradient-container">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">
+                        <i class="fas fa-list me-2"></i> Nodes
+                    </h2>
+                </div>
+                <div class="card-body p-0">
+                    <div class="accordion" id="nodesAccordion">
+                        {% for node in version_data.nodes %}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading{{ loop.index }}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
+                                        {{ node.title }}
+                                    </button>
+                                </h2>
+                                <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#nodesAccordion">
+                                    <div class="accordion-body">
+                                        <div class="mb-3">
+                                            <h6>Description</h6>
+                                            <p>{{ node.description }}</p>
+                                        </div>
+
+                                        {% if node.links %}
+                                            <div>
+                                                <h6>Resources</h6>
+                                                <ul class="list-group">
+                                                    {% for link in node.links %}
+                                                        <li class="list-group-item">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="me-2">
+                                                                    {% if link.type == 'article' %}
+                                                                        <i class="fas fa-file-alt text-primary"></i>
+                                                                    {% elif link.type == 'video' %}
+                                                                        <i class="fas fa-video text-danger"></i>
+                                                                    {% elif link.type == 'course' %}
+                                                                        <i class="fas fa-graduation-cap text-success"></i>
+                                                                    {% elif link.type == 'opensource' %}
+                                                                        <i class="fab fa-github text-dark"></i>
+                                                                    {% else %}
+                                                                        <i class="fas fa-link text-info"></i>
+                                                                    {% endif %}
+                                                                </div>
+                                                                <div>
+                                                                    <div>{{ link.title }}</div>
+                                                                    <div class="small text-muted">{{ link.url }}</div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <!-- Restore Version -->
+            <div class="card border-0 shadow-sm mb-4 roadmap-gradient-container">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">
+                        <i class="fas fa-undo me-2"></i> Restore Version
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <p>Restore the roadmap to this version?</p>
+                    <p class="small text-muted">This will overwrite the current roadmap content. A backup of the current state will be created automatically.</p>
+                    <form method="POST" action="{{ url_for('roadmap.restore_version', roadmap_id=roadmap.id, version_number=version_number) }}">
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-undo me-2"></i> Restore This Version
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Version Info -->
+            <div class="card border-0 shadow-sm roadmap-gradient-container">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">
+                        <i class="fas fa-info-circle me-2"></i> Version Comparison
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <p>Compare with current version:</p>
+                    <ul>
+                        <li><strong>Title:</strong>
+                            {% if version_data.roadmap.title != roadmap.title %}
+                                <span class="text-danger">Changed</span>
+                            {% else %}
+                                <span class="text-success">Same</span>
+                            {% endif %}
+                        </li>
+                        <li><strong>Description:</strong>
+                            {% if version_data.roadmap.description != roadmap.description %}
+                                <span class="text-danger">Changed</span>
+                            {% else %}
+                                <span class="text-success">Same</span>
+                            {% endif %}
+                        </li>
+                        <li><strong>Category:</strong>
+                            {% if version_data.roadmap.category != roadmap.category %}
+                                <span class="text-danger">Changed</span>
+                            {% else %}
+                                <span class="text-success">Same</span>
+                            {% endif %}
+                        </li>
+                        <li><strong>Difficulty:</strong>
+                            {% if version_data.roadmap.difficulty != roadmap.difficulty %}
+                                <span class="text-danger">Changed</span>
+                            {% else %}
+                                <span class="text-success">Same</span>
+                            {% endif %}
+                        </li>
+                        <li><strong>Tags:</strong>
+                            {% if version_data.roadmap.tags != roadmap.tags %}
+                                <span class="text-danger">Changed</span>
+                            {% else %}
+                                <span class="text-success">Same</span>
+                            {% endif %}
+                        </li>
+                    </ul>
+                    <p class="small text-muted mb-0">For a detailed comparison, view the current roadmap and compare with this version.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

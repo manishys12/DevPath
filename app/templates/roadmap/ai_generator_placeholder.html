@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1 class="h3 mb-0">AI Roadmap Generator</h1>
+            <p class="text-muted">Create roadmaps with AI assistance</p>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <a href="{{ url_for('roadmap.list_roadmaps') }}" class="btn btn-outline-primary">
+                <i class="fas fa-arrow-left me-2"></i> Back to Roadmaps
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card border-0 shadow-sm roadmap-gradient-container">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">
+                        <i class="fas fa-robot me-2"></i> AI Roadmap Generator
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i> The AI Roadmap Generator is coming soon!
+                    </div>
+
+                    <p>This feature will allow you to:</p>
+                    <ul>
+                        <li>Generate new roadmaps based on topics</li>
+                        <li>Analyze existing roadmaps for improvements</li>
+                        <li>Get AI-powered recommendations for learning resources</li>
+                    </ul>
+
+                    <p>We're working hard to bring this feature to you. Check back soon!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm roadmap-gradient-container">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">
+                        <i class="fas fa-info-circle me-2"></i> About AI Generation
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <p>Our AI Roadmap Generator will use advanced machine learning to create personalized learning paths.</p>
+
+                    <p>The system will analyze:</p>
+                    <ul>
+                        <li>Current industry trends</li>
+                        <li>Best practices in the field</li>
+                        <li>Quality learning resources</li>
+                        <li>Optimal learning sequences</li>
+                    </ul>
+
+                    <p class="mb-0">Stay tuned for this exciting feature!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

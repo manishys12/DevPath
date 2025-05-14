@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card roadmap-container">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Create Custom Roadmap</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="">
+                        {{ form.hidden_tag() }}
+                        <div class="form-group mb-3">
+                            {{ form.title.label(class="form-control-label") }}
+                            {% if form.title.errors %}
+                                {{ form.title(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.title.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.title(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group mb-3">
+                            {{ form.description.label(class="form-control-label") }}
+                            {% if form.description.errors %}
+                                {{ form.description(class="form-control is-invalid", rows=5) }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.description.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.description(class="form-control", rows=5) }}
+                            {% endif %}
+                            <small class="form-text text-muted">Describe the purpose and goals of this roadmap.</small>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    {{ form.category.label(class="form-control-label") }}
+                                    {% if form.category.errors %}
+                                        {{ form.category(class="form-control is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.category.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.category(class="form-control") }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    {{ form.difficulty.label(class="form-control-label") }}
+                                    {% if form.difficulty.errors %}
+                                        {{ form.difficulty(class="form-control is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.difficulty.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.difficulty(class="form-control") }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            {{ form.tags.label(class="form-control-label") }}
+                            {% if form.tags.errors %}
+                                {{ form.tags(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.tags.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.tags(class="form-control") }}
+                            {% endif %}
+                            <small class="form-text text-muted">Separate tags with commas (e.g., javascript, react, web)</small>
+                        </div>
+                        <div class="form-check mb-3">
+                            {{ form.is_public(class="form-check-input") }}
+                            {{ form.is_public.label(class="form-check-label") }}
+                            <small class="form-text text-muted d-block">If checked, your roadmap will be visible to all users. Otherwise, only you can see it.</small>
+                        </div>
+                        <div class="form-group">
+                            {{ form.submit(class="btn btn-primary") }}
+                            <a href="{{ url_for('roadmap.list_roadmaps') }}" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    // Apply gradient border animation to roadmap containers
+    document.addEventListener('DOMContentLoaded', function() {
+        applyGradientBorders('.roadmap-container');
+    });
+</script>
+{% endblock %}

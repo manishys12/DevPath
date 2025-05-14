@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Explore Roadmaps</h1>
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('roadmap.create_custom_roadmap') }}" class="btn btn-primary">
+            <i class="fas fa-plus-circle me-1"></i> Create Custom Roadmap
+        </a>
+        {% endif %}
+    </div>
+
+    <!-- Filters -->
+    <div class="card mb-4 filter-card">
+        <div class="card-header bg-primary text-white d-flex align-items-center">
+            <i class="fas fa-filter me-2"></i>
+            <h5 class="mb-0">Filter Roadmaps</h5>
+        </div>
+        <div class="card-body">
+            <div class="filter-row">
+                <div class="filter-item">
+                    <div class="filter-group">
+                        <label for="categoryFilter" class="form-label">
+                            <i class="fas fa-tags me-1"></i> Category
+                        </label>
+                        <select class="form-select custom-select styled-select" id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Programming Languages">Programming Languages</option>
+                            <option value="Artificial Intelligence">Artificial Intelligence</option>
+                            <option value="Data Science">Data Science</option>
+                            <option value="DevOps">DevOps</option>
+                            <option value="Mobile Development">Mobile Development</option>
+                            <option value="Blockchain">Blockchain</option>
+                            <option value="Cloud Computing">Cloud Computing</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Security">Security</option>
+                            <option value="Database">Database</option>
+                            <option value="Game Development">Game Development</option>
+                            <option value="Design">Design</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-item">
+                    <div class="filter-group">
+                        <label for="difficultyFilter" class="form-label">
+                            <i class="fas fa-layer-group me-1"></i> Difficulty
+                        </label>
+                        <select class="form-select custom-select styled-select" id="difficultyFilter">
+                            <option value="">All Difficulties</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                            <option value="Beginner to Intermediate">Beginner to Intermediate</option>
+                            <option value="Intermediate to Advanced">Intermediate to Advanced</option>
+                            <option value="Beginner to Advanced">Beginner to Advanced</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-item filter-search">
+                    <div class="filter-group">
+                        <label for="searchFilter" class="form-label">
+                            <i class="fas fa-search me-1"></i> Search
+                        </label>
+                        <div class="input-group">
+                            <input type="text" class="form-control styled-input" id="searchFilter" placeholder="Search by title, category, or tags...">
+                            <button class="btn btn-primary styled-button" type="button" id="clearFilters">
+                                <i class="fas fa-times me-1"></i> Clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roadmaps Grid -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="roadmapsContainer">
+        {% for roadmap in roadmaps %}
+            <div class="col roadmap-item"
+                 data-category="{{ roadmap.category }}"
+                 data-difficulty="{{ roadmap.difficulty }}"
+                 data-title="{{ roadmap.title.lower() }}"
+                 data-tags="{{ roadmap.tags }}">
+                <div class="card h-100 shadow-sm roadmap-gradient-container">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ roadmap.title }}</h5>
+                        <p class="card-text text-muted">{{ roadmap.description[:100] }}{% if roadmap.description|length > 100 %}...{% endif %}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="badge bg-primary">{{ roadmap.category }}</span>
+                                <span class="badge bg-secondary">{{ roadmap.difficulty }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <a href="{{ url_for('roadmap.view_roadmap', roadmap_id=roadmap.id) }}" class="btn btn-outline-primary w-100">View Roadmap</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- No Results Message -->
+    <div id="noResults" class="alert alert-info mt-4 d-none">
+        <i class="fas fa-info-circle me-2"></i> No roadmaps found matching your filters.
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const categoryFilter = document.getElementById('categoryFilter');
+        const difficultyFilter = document.getElementById('difficultyFilter');
+        const searchFilter = document.getElementById('searchFilter');
+        const clearFiltersBtn = document.getElementById('clearFilters');
+        const roadmapItems = document.querySelectorAll('.roadmap-item');
+        const noResults = document.getElementById('noResults');
+
+        function filterRoadmaps() {
+            const category = categoryFilter.value.toLowerCase();
+            const difficulty = difficultyFilter.value.toLowerCase();
+            const search = searchFilter.value.toLowerCase();
+
+            let visibleCount = 0;
+
+            roadmapItems.forEach(item => {
+                const itemCategory = item.dataset.category.toLowerCase();
+                const itemDifficulty = item.dataset.difficulty.toLowerCase();
+                const itemTitle = item.dataset.title.toLowerCase();
+                const itemTags = (item.dataset.tags || '').toLowerCase();
+
+                const matchesCategory = !category || itemCategory.includes(category);
+                const matchesDifficulty = !difficulty || itemDifficulty.includes(difficulty);
+                const matchesSearch = !search ||
+                                     itemTitle.includes(search) ||
+                                     itemTags.includes(search);
+
+                if (matchesCategory && matchesDifficulty && matchesSearch) {
+                    item.classList.remove('d-none');
+                    visibleCount++;
+                } else {
+                    item.classList.add('d-none');
+                }
+            });
+
+            // Show/hide no results message
+            if (visibleCount === 0) {
+                noResults.classList.remove('d-none');
+            } else {
+                noResults.classList.add('d-none');
+            }
+
+            // Update clear button visibility
+            if (category || difficulty || search) {
+                clearFiltersBtn.classList.remove('btn-primary');
+                clearFiltersBtn.classList.add('btn-danger');
+            } else {
+                clearFiltersBtn.classList.remove('btn-danger');
+                clearFiltersBtn.classList.add('btn-primary');
+            }
+        }
+
+        // Clear all filters
+        function clearFilters() {
+            categoryFilter.value = '';
+            difficultyFilter.value = '';
+            searchFilter.value = '';
+            filterRoadmaps();
+        }
+
+        // Add event listeners
+        categoryFilter.addEventListener('change', filterRoadmaps);
+        difficultyFilter.addEventListener('change', filterRoadmaps);
+        searchFilter.addEventListener('input', filterRoadmaps);
+        clearFiltersBtn.addEventListener('click', clearFilters);
+
+        // Initialize filters
+        filterRoadmaps();
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,243 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1 class="display-5 fw-bold mb-4">My Learning Dashboard</h1>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <a href="{{ url_for('roadmap.list_roadmaps') }}" class="btn btn-primary">
+                <i class="fas fa-search me-2"></i> Explore More Roadmaps
+            </a>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3 mb-3 mb-md-0">
+            <div class="card h-100 border-0 shadow-sm roadmap-gradient-container">
+                <div class="card-body text-center">
+                    <div class="display-4 text-primary mb-2">{{ stats.roadmaps_started }}</div>
+                    <div class="text-muted">Roadmaps Started</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3 mb-md-0">
+            <div class="card h-100 border-0 shadow-sm roadmap-gradient-container">
+                <div class="card-body text-center">
+                    <div class="display-4 text-success mb-2">{{ stats.total_completed }}</div>
+                    <div class="text-muted">Topics Completed</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3 mb-md-0">
+            <div class="card h-100 border-0 shadow-sm roadmap-gradient-container">
+                <div class="card-body text-center">
+                    <div class="display-4 text-info mb-2">{{ stats.total_available }}</div>
+                    <div class="text-muted">Total Available Topics</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 border-0 shadow-sm roadmap-gradient-container">
+                <div class="card-body text-center">
+                    <div class="display-4 text-warning mb-2">{{ stats.overall_percentage }}%</div>
+                    <div class="text-muted">Overall Completion</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Roadmap Progress -->
+        <div class="col-lg-8 mb-4">
+            <div class="card border-0 shadow-sm h-100 roadmap-gradient-container">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">
+                        <i class="fas fa-chart-line me-2"></i> My Roadmap Progress
+                    </h2>
+                </div>
+                <div class="card-body">
+                    {% if roadmap_progress %}
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Roadmap</th>
+                                        <th>Progress</th>
+                                        <th class="text-end">Completion</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in roadmap_progress %}
+                                        <tr>
+                                            <td>
+                                                <a href="{{ url_for('roadmap.view_roadmap', roadmap_id=item.roadmap.id) }}" class="text-decoration-none">
+                                                    <strong>{{ item.roadmap.title }}</strong>
+                                                    <div class="small text-muted">{{ item.roadmap.category }}</div>
+                                                </a>
+                                            </td>
+                                            <td class="w-50">
+                                                <div class="progress" style="height: 10px;">
+                                                    <div class="progress-bar bg-success" role="progressbar"
+                                                         style="width: {{ item.percentage }}%;"
+                                                         aria-valuenow="{{ item.percentage }}"
+                                                         aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="small text-muted mt-1">
+                                                    {{ item.completed_nodes }} of {{ item.total_nodes }} topics
+                                                </div>
+                                            </td>
+                                            <td class="text-end">
+                                                <span class="badge bg-{{ 'success' if item.percentage == 100 else 'primary' }}">
+                                                    {{ item.percentage }}%
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="text-center py-5">
+                            <div class="mb-3">
+                                <i class="fas fa-map-signs fa-4x text-muted"></i>
+                            </div>
+                            <h3 class="h5">You haven't started any roadmaps yet</h3>
+                            <p class="text-muted">Explore our roadmaps and start tracking your progress</p>
+                            <a href="{{ url_for('roadmap.list_roadmaps') }}" class="btn btn-primary">
+                                Browse Roadmaps
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="col-lg-4 mb-4">
+            <div class="card border-0 shadow-sm h-100 roadmap-gradient-container">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">
+                        <i class="fas fa-history me-2"></i> Recent Activity
+                    </h2>
+                </div>
+                <div class="card-body p-0">
+                    {% if activity_details %}
+                        <ul class="list-group list-group-flush">
+                            {% for activity in activity_details %}
+                                <li class="list-group-item">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-shrink-0">
+                                            <span class="activity-icon">
+                                                <i class="fas fa-check-circle text-success"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <div class="fw-bold">{{ activity.node.title }}</div>
+                                            <div class="small text-muted">
+                                                <a href="{{ url_for('roadmap.view_roadmap', roadmap_id=activity.roadmap.id) }}" class="text-decoration-none">
+                                                    {{ activity.roadmap.title }}
+                                                </a>
+                                                • {{ activity.date_completed.strftime('%b %d, %Y') }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <div class="text-center py-5">
+                            <i class="fas fa-calendar-check fa-3x text-muted mb-3"></i>
+                            <p>No recent activity</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommended Roadmaps -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm roadmap-gradient-container">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">
+                        <i class="fas fa-lightbulb me-2"></i> Recommended For You
+                    </h2>
+                </div>
+                <div class="card-body">
+                    {% if recommended_roadmaps %}
+                        <div class="row">
+                            {% for roadmap in recommended_roadmaps %}
+                                <div class="col-md-4 mb-3 mb-md-0">
+                                    <div class="card h-100 roadmap-card roadmap-gradient-container">
+                                        <div class="card-body">
+                                            <h3 class="h5 card-title">{{ roadmap.title }}</h3>
+                                            <p class="card-text small text-muted">{{ roadmap.description|truncate(100) }}</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <span class="badge bg-primary">{{ roadmap.category }}</span>
+                                                    <span class="badge bg-secondary">{{ roadmap.difficulty }}</span>
+                                                </div>
+                                                <a href="{{ url_for('roadmap.view_roadmap', roadmap_id=roadmap.id) }}" class="btn btn-sm btn-outline-primary">
+                                                    Start Learning
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="text-center py-4">
+                            <p class="text-muted">Complete more roadmaps to get personalized recommendations</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .activity-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: rgba(40, 167, 69, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .roadmap-card {
+        transition: all 0.3s ease;
+        border: 1px solid #dee2e6;
+    }
+
+    .roadmap-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Dark mode styles */
+    [data-theme="dark"] .card {
+        background-color: var(--card-bg);
+        border-color: var(--border-color);
+    }
+
+    [data-theme="dark"] .activity-icon {
+        background-color: rgba(40, 167, 69, 0.2);
+    }
+
+    [data-theme="dark"] .list-group-item {
+        background-color: var(--card-bg);
+        border-color: var(--border-color);
+    }
+</style>
+{% endblock %}

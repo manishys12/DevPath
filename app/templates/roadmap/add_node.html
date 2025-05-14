@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card roadmap-container">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Add Node to {{ roadmap.title }}</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="">
+                        {{ form.hidden_tag() }}
+                        <div class="form-group mb-3">
+                            {{ form.title.label(class="form-control-label") }}
+                            {% if form.title.errors %}
+                                {{ form.title(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.title.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.title(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group mb-3">
+                            {{ form.description.label(class="form-control-label") }}
+                            {% if form.description.errors %}
+                                {{ form.description(class="form-control is-invalid", rows=5) }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.description.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.description(class="form-control", rows=5) }}
+                            {% endif %}
+                            <small class="form-text text-muted">You can use Markdown for formatting.</small>
+                        </div>
+                        <div class="form-group mb-3">
+                            {{ form.links.label(class="form-control-label") }}
+                            {% if form.links.errors %}
+                                {{ form.links(class="form-control is-invalid", rows=5) }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.links.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.links(class="form-control", rows=5, placeholder="https://example.com/resource1\nhttps://example.com/resource2") }}
+                            {% endif %}
+                            <small class="form-text text-muted">Enter one URL per line. These will be displayed as resources for this node.</small>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Add Node</button>
+                            <a href="{{ url_for('roadmap.edit_custom_roadmap', roadmap_id=roadmap.id) }}" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    // Apply gradient border animation to roadmap containers
+    document.addEventListener('DOMContentLoaded', function() {
+        applyGradientBorders('.roadmap-container');
+    });
+</script>
+{% endblock %}

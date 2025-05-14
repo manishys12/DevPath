@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Search Results</h1>
+
+    <div class="card mb-4 roadmap-gradient-container">
+        <div class="card-body">
+            <form action="{{ url_for('main.search') }}" method="get" class="d-flex search-form">
+                <input type="text" name="q" class="form-control me-0" placeholder="Search roadmaps..." value="{{ query }}">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search me-1"></i> Search
+                </button>
+            </form>
+        </div>
+    </div>
+
+    {% if query %}
+        <h2 class="mb-3">Results for "{{ query }}"</h2>
+
+        {% if roadmaps %}
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                {% for roadmap in roadmaps %}
+                    <div class="col">
+                        <div class="card h-100 shadow-sm roadmap-gradient-container">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ roadmap.title }}</h5>
+                                <p class="card-text text-muted">{{ roadmap.description[:100] }}{% if roadmap.description|length > 100 %}...{% endif %}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="badge bg-primary">{{ roadmap.category }}</span>
+                                        <span class="badge bg-secondary">{{ roadmap.difficulty }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-top-0">
+                                <a href="{{ url_for('roadmap.view_roadmap', roadmap_id=roadmap.id) }}" class="btn btn-outline-primary w-100">View Roadmap</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle me-2"></i> No roadmaps found matching your search criteria.
+            </div>
+
+            <div class="card mt-4 roadmap-gradient-container">
+                <div class="card-body">
+                    <h5 class="card-title">Suggestions</h5>
+                    <ul>
+                        <li>Check your spelling</li>
+                        <li>Try more general keywords</li>
+                        <li>Try different keywords</li>
+                        <li>Browse all roadmaps instead</li>
+                    </ul>
+                    <a href="{{ url_for('roadmap.list_roadmaps') }}" class="btn btn-primary">Browse All Roadmaps</a>
+                </div>
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="alert alert-warning">
+            <i class="fas fa-exclamation-triangle me-2"></i> Please enter a search term.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

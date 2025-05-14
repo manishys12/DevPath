@@ -1,0 +1,346 @@
+/* Roadmap Gradient Animation Styles */
+
+/* Define the angle property for animation */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Base styles for roadmap containers */
+.roadmap-gradient-container {
+  position: relative;
+  background: var(--card-bg, #ffffff);
+  border-radius: 10px;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+  color: var(--text-color, #333333);
+  transition: transform 0.3s ease;
+}
+
+/* Preserve original padding for different container types */
+.card.roadmap-gradient-container {
+  padding: 0;
+}
+
+.alert.roadmap-gradient-container {
+  padding: 1rem;
+}
+
+.jumbotron.roadmap-gradient-container,
+.hero.roadmap-gradient-container,
+div[class^="col-"].roadmap-gradient-container > .card {
+  padding: 2rem;
+}
+
+/* Preserve text alignment */
+.text-center.roadmap-gradient-container,
+.text-center .roadmap-gradient-container {
+  text-align: center;
+}
+
+.text-start.roadmap-gradient-container,
+.text-start .roadmap-gradient-container,
+.text-left.roadmap-gradient-container,
+.text-left .roadmap-gradient-container {
+  text-align: left;
+}
+
+.text-end.roadmap-gradient-container,
+.text-end .roadmap-gradient-container,
+.text-right.roadmap-gradient-container,
+.text-right .roadmap-gradient-container {
+  text-align: right;
+}
+
+/* Hover effect */
+.roadmap-gradient-container:hover {
+  transform: translateY(-5px);
+}
+
+/* Create the gradient border effect */
+.roadmap-gradient-container::after,
+.roadmap-gradient-container::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(
+    from var(--angle),
+    #ff4545,
+    #00ff99,
+    #006aff,
+    #ff0095,
+    #ff4545
+  );
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+
+/* Create the actual border effect with a mask */
+.roadmap-gradient-container::after {
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 2px;
+}
+
+/* Add blur effect to the background gradient */
+.roadmap-gradient-container::before {
+  filter: blur(1rem);
+  opacity: 0.2;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 6px;
+}
+
+/* Animation keyframes */
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* Dark mode specific adjustments */
+[data-theme="dark"] .roadmap-gradient-container {
+  background-color: var(--card-bg, #1c1f2b);
+  color: var(--text-color, #f0f0f0);
+}
+
+[data-theme="dark"] .roadmap-gradient-container .card-header {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border-color, #2d2d2d);
+}
+
+[data-theme="dark"] .roadmap-gradient-container .text-muted {
+  color: var(--text-muted-color, #d1d1d1) !important;
+}
+
+[data-theme="dark"] .roadmap-gradient-container .resource-link {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--text-color, #f0f0f0);
+}
+
+[data-theme="dark"] .roadmap-gradient-container .resource-link:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Light mode specific adjustments */
+[data-theme="light"] .roadmap-gradient-container {
+  background-color: var(--card-bg, #ffffff);
+  color: var(--text-color, #333333);
+}
+
+[data-theme="light"] .roadmap-gradient-container .card-header {
+  background-color: var(--card-header-bg, rgba(0, 0, 0, 0.03));
+  border-bottom: 1px solid var(--border-color, #dee2e6);
+}
+
+[data-theme="light"] .roadmap-gradient-container h1,
+[data-theme="light"] .roadmap-gradient-container h2,
+[data-theme="light"] .roadmap-gradient-container h3,
+[data-theme="light"] .roadmap-gradient-container h4,
+[data-theme="light"] .roadmap-gradient-container h5,
+[data-theme="light"] .roadmap-gradient-container h6 {
+  color: var(--text-color, #333333);
+}
+
+[data-theme="light"] .roadmap-gradient-container .text-muted {
+  color: var(--text-muted-color, #6c757d) !important;
+}
+
+[data-theme="light"] .roadmap-gradient-container .btn-outline-secondary {
+  color: var(--text-color, #333333);
+  border-color: var(--border-color, #dee2e6);
+}
+
+[data-theme="light"] .roadmap-gradient-container .btn-outline-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Apply to roadmap nodes */
+.roadmap-node.roadmap-gradient-container {
+  border: none;
+}
+
+/* Handle completed nodes */
+.roadmap-node.roadmap-gradient-container.node-completed::before,
+.roadmap-node.roadmap-gradient-container.node-completed::after {
+  background-image: conic-gradient(
+    from var(--angle),
+    #00ff99,
+    #006aff,
+    #ff0095,
+    #ff4545,
+    #00ff99
+  );
+}
+
+/* Apply to roadmap cards in list view */
+.roadmap-item .card.roadmap-gradient-container {
+  height: 100%;
+  border: none;
+}
+
+/* Ensure text is readable */
+.roadmap-gradient-container h1,
+.roadmap-gradient-container h2,
+.roadmap-gradient-container h3,
+.roadmap-gradient-container h4,
+.roadmap-gradient-container h5,
+.roadmap-gradient-container h6,
+.roadmap-gradient-container p,
+.roadmap-gradient-container div,
+.roadmap-gradient-container span,
+.roadmap-gradient-container a {
+  color: var(--text-color, #333333);
+}
+
+/* Ensure text is readable in gradient-disabled mode */
+.gradient-disabled h1,
+.gradient-disabled h2,
+.gradient-disabled h3,
+.gradient-disabled h4,
+.gradient-disabled h5,
+.gradient-disabled h6,
+.gradient-disabled p,
+.gradient-disabled div,
+.gradient-disabled span,
+.gradient-disabled a {
+  color: var(--text-color, #333333);
+}
+
+/* Home page specific styles */
+.roadmap-gradient-container .lead {
+  color: var(--text-color, #ffffff);
+}
+
+.roadmap-gradient-container .btn-outline-secondary {
+  color: var(--text-color, #ffffff);
+  border-color: var(--text-color, #ffffff);
+}
+
+.roadmap-gradient-container .btn-outline-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+  .roadmap-gradient-container {
+    padding: 1.5em;
+  }
+
+  .roadmap-gradient-container::before {
+    filter: blur(0.75rem);
+    padding: 4px;
+  }
+
+  .roadmap-gradient-container::after {
+    padding: 1.5px;
+  }
+}
+
+/* Fix for dropdown menus */
+.dropdown-menu {
+  z-index: 1050 !important;
+  position: absolute !important;
+}
+
+.dropdown-menu.roadmap-gradient-container {
+  background: var(--card-bg, #fff);
+  border: none;
+}
+
+.dropdown-menu.roadmap-gradient-container::after,
+.dropdown-menu.roadmap-gradient-container::before {
+  content: none !important;
+}
+
+/* Ensure dropdowns work properly */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: inline-block !important;
+}
+
+/* Fix for navbar dropdowns */
+.navbar-nav .dropdown-menu {
+  position: absolute;
+}
+
+/* Styles for when gradient borders are disabled */
+.gradient-disabled {
+  position: relative;
+  background: var(--card-bg, #ffffff);
+  border-radius: 10px;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+  color: var(--text-color, #333333);
+  transition: transform 0.3s ease;
+  border: 1px solid var(--border-color, #dee2e6);
+}
+
+/* Light mode styles for gradient-disabled */
+[data-theme="light"] .gradient-disabled {
+  background-color: var(--card-bg, #ffffff);
+  color: var(--text-color, #333333);
+}
+
+[data-theme="light"] .gradient-disabled .card-header {
+  background-color: var(--card-header-bg, rgba(0, 0, 0, 0.03));
+  border-bottom: 1px solid var(--border-color, #dee2e6);
+}
+
+[data-theme="light"] .gradient-disabled h1,
+[data-theme="light"] .gradient-disabled h2,
+[data-theme="light"] .gradient-disabled h3,
+[data-theme="light"] .gradient-disabled h4,
+[data-theme="light"] .gradient-disabled h5,
+[data-theme="light"] .gradient-disabled h6 {
+  color: var(--text-color, #333333);
+}
+
+[data-theme="light"] .gradient-disabled .text-muted {
+  color: var(--text-muted-color, #6c757d) !important;
+}
+
+/* Dark mode styles for gradient-disabled */
+[data-theme="dark"] .gradient-disabled {
+  background-color: var(--card-bg, #1c1f2b);
+  color: var(--text-color, #f0f0f0);
+  border: 1px solid var(--border-color, #2d2d2d);
+}
+
+[data-theme="dark"] .gradient-disabled .card-header {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border-color, #2d2d2d);
+}
+
+[data-theme="dark"] .gradient-disabled .text-muted {
+  color: var(--text-muted-color, #d1d1d1) !important;
+}
+
+/* Preserve card styles */
+.card.gradient-disabled {
+  padding: 0;
+}

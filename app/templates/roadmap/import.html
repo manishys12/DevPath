@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card roadmap-gradient-container">
+                <div class="card-header">
+                    <h2 class="mb-0">Import Roadmaps</h2>
+                </div>
+                <div class="card-body">
+                    <p class="lead">Import roadmap data from JSON files in the <code>roadmap_data</code> directory.</p>
+
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i> This will import all roadmaps from the JSON files that are not already in the database.
+                    </div>
+
+                    <form method="POST" action="{{ url_for('roadmap.import_roadmaps') }}">
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Import Roadmaps</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

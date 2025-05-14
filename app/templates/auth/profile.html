@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4 roadmap-gradient-container">
+            <div class="card-header">
+                <h3 class="mb-0">Profile</h3>
+            </div>
+            <div class="card-body text-center">
+                <img class="rounded-circle img-fluid mb-3" src="{{ image_file }}" alt="Profile Picture" style="width: 150px; height: 150px; object-fit: cover;">
+                <h4>{{ current_user.username }}</h4>
+                <p class="text-muted">{{ current_user.email }}</p>
+                <p class="text-muted">Joined: {{ current_user.date_joined.strftime('%B %d, %Y') }}</p>
+            </div>
+        </div>
+
+        <!-- Progress Summary Card -->
+        <div class="card roadmap-gradient-container">
+            <div class="card-header">
+                <h4 class="mb-0">Progress Summary</h4>
+            </div>
+            <div class="card-body">
+                <div class="progress-stats">
+                    <p>Roadmaps in progress: <span class="badge bg-primary">{{ roadmaps_in_progress }}</span></p>
+                    <p>Completed topics: <span class="badge bg-success">{{ completed_topics }}</span></p>
+                    <p>Total topics: <span class="badge bg-secondary">{{ total_topics }}</span></p>
+
+                    <!-- Progress percentage -->
+                    {% if total_topics > 0 %}
+                        {% set progress_percentage = (completed_topics / total_topics * 100) | round | int %}
+                    {% else %}
+                        {% set progress_percentage = 0 %}
+                    {% endif %}
+
+                    <div class="progress mt-3">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: {{ progress_percentage }}%;"
+                             aria-valuenow="{{ progress_percentage }}" aria-valuemin="0" aria-valuemax="100">
+                            {{ progress_percentage }}%
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid gap-2 mt-3">
+                    <a href="{{ url_for('roadmap.list_roadmaps') }}" class="btn btn-outline-primary">View All Roadmaps</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card roadmap-gradient-container">
+            <div class="card-header">
+                <h3 class="mb-0">Update Profile</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
+                    <div class="mb-3">
+                        {{ form.username.label(class="form-label") }}
+                        {% if form.username.errors %}
+                            {{ form.username(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.username(class="form-control") }}
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.email.label(class="form-label") }}
+                        {% if form.email.errors %}
+                            {{ form.email(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email(class="form-control") }}
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.avatar.label(class="form-label") }}
+                        <div class="input-group">
+                            {{ form.avatar(class="form-control") }}
+                        </div>
+                        {% if form.avatar.errors %}
+                            <div class="invalid-feedback d-block">
+                                {% for error in form.avatar.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <small class="form-text text-muted">Upload a JPG or PNG file (max 5MB)</small>
+                    </div>
+                    <div class="d-grid">
+                        {{ form.submit(class="btn btn-primary") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Recent Activity Card -->
+        <div class="card mt-4 roadmap-gradient-container">
+            <div class="card-header">
+                <h4 class="mb-0">Recent Activity</h4>
+            </div>
+            <div class="card-body">
+                {% if activity_details %}
+                    <ul class="list-group list-group-flush">
+                        {% for activity in activity_details %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>{{ activity.node.title }}</strong>
+                                    <p class="text-muted mb-0">
+                                        <small>
+                                            <i class="fas fa-map me-1"></i> {{ activity.roadmap.title }}
+                                        </small>
+                                    </p>
+                                </div>
+                                <span class="badge bg-success rounded-pill">
+                                    <i class="fas fa-check-circle me-1"></i>
+                                    {{ activity.date_completed.strftime('%b %d, %Y') }}
+                                </span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="text-muted text-center">No recent activity found. Start completing roadmap topics to see your activity here!</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

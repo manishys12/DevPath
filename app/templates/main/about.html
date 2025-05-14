@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-sm roadmap-gradient-container">
+                <div class="card-body p-5">
+                    <h1 class="display-5 fw-bold text-center mb-4">About EdgeRoute</h1>
+
+                    <p class="lead">EdgeRoute is a platform designed to help learners master new skills through structured roadmaps, progress tracking, and curated resources.</p>
+
+                    <hr class="my-4">
+
+                    <h3>Our Mission</h3>
+                    <p>At EdgeRoute, we believe that learning should be structured, trackable, and engaging. Our mission is to provide clear pathways for skill development, helping learners navigate the complex landscape of technical education.</p>
+
+                    <h3 class="mt-4">Key Features</h3>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item bg-transparent">
+                            <i class="fas fa-map-marked-alt text-primary me-2"></i>
+                            <strong>Interactive Roadmaps:</strong> Visual, step-by-step guides to master various skills and technologies.
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <strong>Progress Tracking:</strong> Mark topics as completed and visualize your learning journey.
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <i class="fas fa-book text-info me-2"></i>
+                            <strong>Curated Resources:</strong> Each topic includes carefully selected articles, videos, and tutorials.
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <i class="fas fa-user-circle text-warning me-2"></i>
+                            <strong>Personalized Profiles:</strong> Track your progress across multiple roadmaps and showcase your achievements.
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <i class="fas fa-comments text-danger me-2"></i>
+                            <strong>Community Interaction:</strong> Discuss topics, share insights, and learn from others.
+                        </li>
+                    </ul>
+
+                    <h3>How It Works</h3>
+                    <ol class="list-group list-group-numbered mb-4">
+                        <li class="list-group-item bg-transparent">Create an account to track your progress</li>
+                        <li class="list-group-item bg-transparent">Choose a roadmap that matches your learning goals</li>
+                        <li class="list-group-item bg-transparent">Follow the structured path, completing topics as you go</li>
+                        <li class="list-group-item bg-transparent">Use the curated resources to learn each topic thoroughly</li>
+                        <li class="list-group-item bg-transparent">Mark topics as completed to track your progress</li>
+                        <li class="list-group-item bg-transparent">Engage with the community through comments and discussions</li>
+                    </ol>
+
+                    <div class="text-center mt-5">
+                        <a href="{{ url_for('roadmap.list_roadmaps') }}" class="btn btn-primary btn-lg px-4 me-md-2">Explore Roadmaps</a>
+                        {% if not current_user.is_authenticated %}
+                            <a href="{{ url_for('auth.register') }}" class="btn btn-outline-secondary btn-lg px-4">Sign Up</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

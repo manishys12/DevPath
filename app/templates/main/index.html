@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="text-white p-5 rounded-3 mb-5 roadmap-gradient-container">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold">Learn Skills via Structured Roadmaps</h1>
+                <p class="lead">Track your progress, engage with rich content, and build your career path step by step.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="{{ url_for('roadmap.list_roadmaps') }}" class="btn btn-light btn-lg px-4 me-md-2">Explore Roadmaps</a>
+                    {% if not current_user.is_authenticated %}
+                        <a href="{{ url_for('auth.register') }}" class="btn btn-outline-light btn-lg px-4">Sign Up</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block">
+                <img src="{{ url_for('static', filename='img/hero-image.svg') }}" alt="Roadmap Illustration" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Roadmaps -->
+<section class="mb-5">
+    <h2 class="mb-4">Featured Roadmaps</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for roadmap in roadmaps[:6] %}
+            <div class="col">
+                <div class="card h-100 shadow-sm roadmap-gradient-container">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ roadmap.title }}</h5>
+                        <p class="card-text text-muted">{{ roadmap.description[:100] }}{% if roadmap.description|length > 100 %}...{% endif %}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="badge bg-primary">{{ roadmap.category }}</span>
+                                <span class="badge bg-secondary">{{ roadmap.difficulty }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <a href="{{ url_for('roadmap.view_roadmap', roadmap_id=roadmap.id) }}" class="btn btn-outline-primary w-100">View Roadmap</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="text-center mt-4">
+        <a href="{{ url_for('roadmap.list_roadmaps') }}" class="btn btn-primary">View All Roadmaps</a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="mb-5">
+    <h2 class="mb-4 text-center">Why Choose EdgeRoute?</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm roadmap-gradient-container">
+                <div class="card-body text-center">
+                    <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-map-marked-alt fa-2x"></i>
+                    </div>
+                    <h4>Structured Learning Paths</h4>
+                    <p>Follow clear, step-by-step roadmaps designed by industry experts to master new skills efficiently.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm roadmap-gradient-container">
+                <div class="card-body text-center">
+                    <div class="feature-icon bg-success bg-gradient text-white rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-tasks fa-2x"></i>
+                    </div>
+                    <h4>Progress Tracking</h4>
+                    <p>Track your learning journey with visual progress indicators and celebrate your achievements.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm roadmap-gradient-container">
+                <div class="card-body text-center">
+                    <div class="feature-icon bg-info bg-gradient text-white rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-book-reader fa-2x"></i>
+                    </div>
+                    <h4>Rich Resources</h4>
+                    <p>Access curated learning materials including articles, videos, and interactive tutorials for each topic.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="p-5 rounded-3 text-center roadmap-gradient-container">
+    <h2>Ready to Start Your Learning Journey?</h2>
+    <p class="lead">Join thousands of learners who are advancing their careers with EdgeRoute.</p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
+        <a href="{{ url_for('roadmap.list_roadmaps') }}" class="btn btn-primary btn-lg px-4 gap-3">Explore Roadmaps</a>
+        {% if not current_user.is_authenticated %}
+            <a href="{{ url_for('auth.register') }}" class="btn btn-outline-secondary btn-lg px-4">Sign Up for Free</a>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

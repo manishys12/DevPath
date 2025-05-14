@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>My Custom Roadmaps</h1>
+                <a href="{{ url_for('roadmap.create_custom_roadmap') }}" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Create New Roadmap
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        {% if roadmaps %}
+            {% for roadmap in roadmaps %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 roadmap-container">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title mb-0">{{ roadmap.title }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{ roadmap.description|truncate(150) }}</p>
+                            <div class="mb-2">
+                                <span class="badge bg-info">{{ roadmap.category }}</span>
+                                <span class="badge bg-secondary">{{ roadmap.difficulty }}</span>
+                                {% if roadmap.is_public %}
+                                    <span class="badge bg-success">Public</span>
+                                {% else %}
+                                    <span class="badge bg-warning text-dark">Private</span>
+                                {% endif %}
+                            </div>
+                            {% if roadmap.tags %}
+                                <div class="mb-3">
+                                    {% for tag in roadmap.tags.split(',') %}
+                                        <span class="badge bg-light text-dark">{{ tag.strip() }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="card-footer">
+                            <div class="btn-group w-100">
+                                <a href="{{ url_for('roadmap.view_roadmap', roadmap_id=roadmap.id) }}" class="btn btn-outline-primary">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="{{ url_for('roadmap.edit_custom_roadmap', roadmap_id=roadmap.id) }}" class="btn btn-outline-secondary">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <div class="alert alert-info roadmap-container">
+                    <h4 class="alert-heading">No Custom Roadmaps Yet!</h4>
+                    <p>You haven't created any custom roadmaps yet. Get started by creating your first roadmap!</p>
+                    <hr>
+                    <a href="{{ url_for('roadmap.create_custom_roadmap') }}" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Create Your First Roadmap
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    // Apply gradient border animation to roadmap containers
+    document.addEventListener('DOMContentLoaded', function() {
+        applyGradientBorders('.roadmap-container');
+    });
+</script>
+{% endblock %}

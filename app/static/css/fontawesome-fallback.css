@@ -1,0 +1,134 @@
+/* Font Awesome fallback CSS */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url('../webfonts/fa-solid-900.woff2') format('woff2'),
+       url('../webfonts/fa-solid-900.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('../webfonts/fa-regular-400.woff2') format('woff2'),
+       url('../webfonts/fa-regular-400.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('../webfonts/fa-brands-400.woff2') format('woff2'),
+       url('../webfonts/fa-brands-400.ttf') format('truetype');
+}
+
+/* Base icon styles */
+.fas, .far, .fab {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+.fas {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.far {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 400;
+}
+
+.fab {
+  font-family: 'Font Awesome 6 Brands';
+  font-weight: 400;
+}
+
+/* Specific icons used in the application */
+.fa-file-alt:before {
+  content: "\f15c";
+}
+
+.fa-video:before {
+  content: "\f03d";
+}
+
+.fa-graduation-cap:before {
+  content: "\f19d";
+}
+
+.fa-github:before {
+  content: "\f09b";
+}
+
+.fa-link:before {
+  content: "\f0c1";
+}
+
+.fa-check-circle:before {
+  content: "\f058";
+}
+
+.fa-circle:before {
+  content: "\f111";
+}
+
+.fa-home:before {
+  content: "\f015";
+}
+
+.fa-map-signs:before {
+  content: "\f277";
+}
+
+.fa-arrow-left:before {
+  content: "\f060";
+}
+
+.fa-filter:before {
+  content: "\f0b0";
+}
+
+.fa-search:before {
+  content: "\f002";
+}
+
+.fa-times:before {
+  content: "\f00d";
+}
+
+.fa-arrow-right:before {
+  content: "\f061";
+}
+
+.fa-info-circle:before {
+  content: "\f05a";
+}
+
+.fa-comments:before {
+  content: "\f086";
+}
+
+.fa-sun:before {
+  content: "\f185";
+}
+
+.fa-moon:before {
+  content: "\f186";
+}
+
+.fa-tags:before {
+  content: "\f02c";
+}
+
+.fa-layer-group:before {
+  content: "\f5fd";
+}

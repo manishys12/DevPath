@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1 class="h3 mb-0">Version History</h1>
+            <p class="text-muted">{{ roadmap.title }}</p>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <a href="{{ url_for('roadmap.view_roadmap', roadmap_id=roadmap.id) }}" class="btn btn-outline-primary">
+                <i class="fas fa-arrow-left me-2"></i> Back to Roadmap
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <!-- Version List -->
+            <div class="card border-0 shadow-sm roadmap-gradient-container">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">
+                        <i class="fas fa-history me-2"></i> Version History
+                    </h2>
+                </div>
+                <div class="card-body p-0">
+                    {% if versions %}
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Version</th>
+                                        <th>Created</th>
+                                        <th>Description</th>
+                                        <th class="text-end">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for version in versions %}
+                                        <tr>
+                                            <td>v{{ version.version_number }}</td>
+                                            <td>
+                                                {{ version.created_at.strftime('%b %d, %Y %H:%M') }}
+                                                {% if version.creator %}
+                                                    <div class="small text-muted">by {{ version.creator.username }}</div>
+                                                {% endif %}
+                                            </td>
+                                            <td>{{ version.description or 'No description' }}</td>
+                                            <td class="text-end">
+                                                <a href="{{ url_for('roadmap.view_version', roadmap_id=roadmap.id, version_number=version.version_number) }}" class="btn btn-sm btn-outline-primary">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <button type="button" class="btn btn-sm btn-outline-success"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#restoreModal"
+                                                        data-version="{{ version.version_number }}">
+                                                    <i class="fas fa-undo"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="text-center py-5">
+                            <i class="fas fa-history fa-3x text-muted mb-3"></i>
+                            <p>No versions available</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <!-- Create Version Form -->
+            <div class="card border-0 shadow-sm roadmap-gradient-container">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">
+                        <i class="fas fa-save me-2"></i> Create New Version
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('roadmap.create_version', roadmap_id=roadmap.id) }}">
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Describe the changes in this version..."></textarea>
+                            <div class="form-text">Provide a brief description of the changes in this version.</div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-save me-2"></i> Create Version
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Version Info -->
+            <div class="card border-0 shadow-sm mt-4 roadmap-gradient-container">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">
+                        <i class="fas fa-info-circle me-2"></i> About Versioning
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <p>Versions allow you to:</p>
+                    <ul>
+                        <li>Track changes to roadmaps over time</li>
+                        <li>Restore previous versions if needed</li>
+                        <li>Compare different versions of a roadmap</li>
+                    </ul>
+                    <p class="small text-muted mb-0">Creating a new version will save the current state of the roadmap, including all nodes and their content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Restore Modal -->
+<div class="modal fade" id="restoreModal" tabindex="-1" aria-labelledby="restoreModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="restoreModalLabel">Restore Version</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to restore the roadmap to version <span id="versionNumber"></span>?</p>
+                <p class="text-danger">This will overwrite the current roadmap content. A backup of the current state will be created automatically.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form id="restoreForm" method="POST" action="">
+                    <button type="submit" class="btn btn-success">Restore</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle restore modal
+        const restoreModal = document.getElementById('restoreModal');
+        if (restoreModal) {
+            restoreModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget;
+                const version = button.getAttribute('data-version');
+
+                document.getElementById('versionNumber').textContent = version;
+                document.getElementById('restoreForm').action = "{{ url_for('roadmap.restore_version', roadmap_id=roadmap.id, version_number=0) }}".replace('/0', '/' + version);
+            });
+        }
+    });
+</script>
+{% endblock %}

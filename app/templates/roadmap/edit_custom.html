@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card roadmap-container mb-4">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h2 class="mb-0">Edit Roadmap: {{ roadmap.title }}</h2>
+                    <div>
+                        <a href="{{ url_for('roadmap.view_roadmap', roadmap_id=roadmap.id) }}" class="btn btn-light btn-sm">
+                            <i class="fas fa-eye"></i> View
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="">
+                        {{ form.hidden_tag() }}
+                        <div class="form-group mb-3">
+                            {{ form.title.label(class="form-control-label") }}
+                            {% if form.title.errors %}
+                                {{ form.title(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.title.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.title(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group mb-3">
+                            {{ form.description.label(class="form-control-label") }}
+                            {% if form.description.errors %}
+                                {{ form.description(class="form-control is-invalid", rows=5) }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.description.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.description(class="form-control", rows=5) }}
+                            {% endif %}
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    {{ form.category.label(class="form-control-label") }}
+                                    {% if form.category.errors %}
+                                        {{ form.category(class="form-control is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.category.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.category(class="form-control") }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    {{ form.difficulty.label(class="form-control-label") }}
+                                    {% if form.difficulty.errors %}
+                                        {{ form.difficulty(class="form-control is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.difficulty.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.difficulty(class="form-control") }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            {{ form.tags.label(class="form-control-label") }}
+                            {% if form.tags.errors %}
+                                {{ form.tags(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.tags.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.tags(class="form-control") }}
+                            {% endif %}
+                            <small class="form-text text-muted">Separate tags with commas (e.g., javascript, react, web)</small>
+                        </div>
+                        <div class="form-check mb-3">
+                            {{ form.is_public(class="form-check-input") }}
+                            {{ form.is_public.label(class="form-check-label") }}
+                            <small class="form-text text-muted d-block">If checked, your roadmap will be visible to all users. Otherwise, only you can see it.</small>
+                        </div>
+                        <div class="form-group">
+                            {{ form.submit(class="btn btn-primary") }}
+                            <a href="{{ url_for('roadmap.my_roadmaps') }}" class="btn btn-secondary">Back to My Roadmaps</a>
+                            <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#deleteRoadmapModal">
+                                Delete Roadmap
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Nodes Section -->
+            <div class="card roadmap-container">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0">Roadmap Nodes</h3>
+                    <a href="{{ url_for('roadmap.add_roadmap_node', roadmap_id=roadmap.id) }}" class="btn btn-light btn-sm">
+                        <i class="fas fa-plus"></i> Add Node
+                    </a>
+                </div>
+                <div class="card-body">
+                    {% if nodes %}
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for node in nodes %}
+                                    <tr>
+                                        <td>{{ node.title }}</td>
+                                        <td>{{ node.description|truncate(100) }}</td>
+                                        <td>
+                                            <a href="{{ url_for('roadmap.edit_roadmap_node', roadmap_id=roadmap.id, node_id=node.id) }}" class="btn btn-sm btn-primary">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteNodeModal{{ node.id }}">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="alert alert-info">
+                            <p>No nodes have been added to this roadmap yet.</p>
+                            <a href="{{ url_for('roadmap.add_roadmap_node', roadmap_id=roadmap.id) }}" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Add First Node
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Roadmap Modal -->
+<div class="modal fade" id="deleteRoadmapModal" tabindex="-1" aria-labelledby="deleteRoadmapModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteRoadmapModalLabel">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this roadmap? This action cannot be undone.</p>
+                <p><strong>Warning:</strong> All nodes and progress data will be permanently deleted.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form action="{{ url_for('roadmap.delete_custom_roadmap', roadmap_id=roadmap.id) }}" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="btn btn-danger">Delete Roadmap</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Node Modals -->
+{% for node in nodes %}
+<div class="modal fade" id="deleteNodeModal{{ node.id }}" tabindex="-1" aria-labelledby="deleteNodeModalLabel{{ node.id }}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteNodeModalLabel{{ node.id }}">Confirm Node Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete the node "{{ node.title }}"?</p>
+                <p>This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form action="{{ url_for('roadmap.delete_roadmap_node', roadmap_id=roadmap.id, node_id=node.id) }}" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="btn btn-danger">Delete Node</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    // Apply gradient border animation to roadmap containers
+    document.addEventListener('DOMContentLoaded', function() {
+        applyGradientBorders('.roadmap-container');
+    });
+</script>
+{% endblock %}
